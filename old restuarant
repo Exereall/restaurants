@@ -1,0 +1,3547 @@
+import java.awt.Color;
+import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.Dimension;
+import java.awt.Dimension;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Font;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
+import java.awt.HeadlessException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseEvent;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.MessageFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
+import javax.print.Doc;
+import javax.print.DocFlavor;
+import javax.print.DocPrintJob;
+import javax.print.PrintException;
+import javax.print.PrintService;
+import javax.print.PrintServiceLookup;
+import javax.print.SimpleDoc;
+import javax.print.attribute.HashPrintRequestAttributeSet;
+import javax.print.attribute.PrintRequestAttributeSet;
+import javax.print.attribute.standard.Copies;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JLabel;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPanel;
+import javax.swing.JProgressBar;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JTable;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.JTextField;
+import javax.swing.JToggleButton;
+import javax.swing.SwingConstants;
+import javax.swing.SwingConstants;
+import javax.swing.border.Border;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.DefaultTableModel;
+
+import net.glxn.qrgen.QRCode;
+import net.glxn.qrgen.image.ImageType;
+import javax.swing.border.TitledBorder;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeEvent;
+import javax.swing.UIManager;
+//*@author msfata programming help*//
+@SuppressWarnings("all")
+public class Restuarant extends JFrame {
+	DefaultTableModel Model;
+	Border border = LineBorder.createGrayLineBorder();
+	private JPanel contentPane;
+	private JPanel panel;
+	private JPanel panel_2;
+	private JPanel panel_3;
+	private JPanel panel_4;
+	private JPanel paFooter;
+	private JButton btnExit;
+	private JComboBox<?> jcChickenBurger;
+	private JComboBox<?> jcBeanBurger;
+	private JComboBox<?> jcBeafBurger;
+	private JComboBox<?> jcSoftDrink;
+	private JCheckBox cbVAT;
+	private JCheckBox cbHomeDelivery;
+	@SuppressWarnings("unused")
+	private JMenuBar menuBar;
+	@SuppressWarnings("unused")
+	private JMenuItem mntmCalculator;
+	private JTabbedPane tabbedPane;
+	private JPanel paShopingList;
+	private JPanel paCalculator;
+	private JLabel lblCostOfMeal;
+	private JLabel lblCostOfDrink;
+	private JLabel lblCostOfDelivery;
+	private JLabel lblMeal;
+	private JLabel lblDrink;
+	private JLabel lblDelivery;
+	private JButton btnTotal;
+	private JLabel lblSubTotal1;
+	private JLabel lblVat1;
+	private JLabel lblTotal1;
+	private JLabel lblSubTotal;
+	private JLabel lblVAT;
+	private JLabel lblTotal;
+	private JLabel lblRestaurant;
+	private JTextArea taCalculator;
+	private JButton btnNewButton;
+	private JButton button;
+	private JButton button_1;
+	private JButton btnS;
+	private JButton button_3;
+	private JButton button_4;
+	private JButton button_5;
+	private JButton button_6;
+	private JButton button_7;
+	private JButton button_8;
+	private JButton btnC;
+	private JButton button_10;
+	private JButton button_11;
+	private JButton button_12;
+	private JButton button_13;
+	private JButton button_15;
+	private JButton button_16;
+	private JButton button_17;
+	private JButton button_18;
+	public boolean isNegative;
+	public boolean isSecond;
+	public boolean isPrintingOn;
+	static Connection con;
+	String derbyDriver;
+	public int costReport;
+	public double softBeafBurgerCost;
+	public double softBeanBurgerCost;
+	public double breastCost;
+	public double legsCost;
+	public double wingsCost;
+	public double vegeBurgerCost;
+	public double chipsCost;
+	public double softDrinkCost;
+	public double softChipsCost;
+	public double softVegeBurgerCost;
+	public double softWingsCost;
+	public double softLegsCost;
+	public double softBreastCost;
+	public double totalDrinks;
+	private String chips;
+	public double vaucherCridit;
+	public boolean calculate;
+	public int chickenCounter;
+	public double chickenBurgerUnit;
+	public double beafBurgerUnit;
+	public int beafCounter;
+	public double beanBurgerUnit;
+	public int beanCounter;
+	public double breastUnit;
+	public int breastCounter;
+	public double legsUnit;
+	public int counterLeg;
+	public double wingUnit;
+	public int counterWing;
+	public double vegeBurgerUnit;
+	public int counterVege;
+	public double chipsUnit;
+	public int counterChips;
+	public int drinksToDisplay;
+	public boolean isUserAdmin;
+	public static int numOfDrinks = 1;
+	public static double removed;
+
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Restuarant frame = new Restuarant();
+					frame.setVisible(true);
+					tfCode.requestFocus();
+					time();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	protected static void time() {
+		new Thread() {
+			public void run() {
+				for (;;) {
+					Calendar cal = new GregorianCalendar();
+					int year = cal.get(Calendar.YEAR);
+					int month = cal.get(Calendar.MONTH);
+					int day = cal.get(Calendar.DATE);
+
+					int hour = cal.get(Calendar.HOUR);
+					int min = cal.get(Calendar.MINUTE);
+					int sec = cal.get(Calendar.SECOND);
+					int am_pm = cal.get(Calendar.AM_PM);
+					String ap = "";
+					if (am_pm > 0) {
+						ap = "PM";
+					} else {
+						ap = "AM";
+					}
+					if (hour == 0) {
+						hour = 12;
+					} else if (hour == 24) {
+						hour = 12;
+					}
+					String time = hour + "  :  " + min + "  :  " + sec + "  " + ap;
+					tfTime.setText(time);
+					int temp = day + 1;
+					String date = year + " : " + month + " : " + temp;
+					tfDate.setText(date);
+				}
+			}
+		}.start();
+	}
+
+	@SuppressWarnings({ "rawtypes", "unchecked", "static-access" })
+	public Restuarant() throws SQLException {
+		derbyDriver = "jdbc:derby:codejava/webdb11;create=true";
+		con = DriverManager.getConnection(derbyDriver);
+		stmt = con.createStatement();
+
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+		int height = gd.getDisplayMode().getWidth();
+		int width = gd.getDisplayMode().getHeight();
+		setBounds(0, 0, height, width);
+		this.contentPane = new JPanel();
+		this.contentPane.setBackground(Color.WHITE);
+		this.contentPane.setBorder(new CompoundBorder(new LineBorder(new Color(204, 204, 153), 5),
+				new LineBorder(new Color(255, 204, 102), 26)));
+		setContentPane(this.contentPane);
+		this.contentPane.setLayout(null);
+
+		this.progressBar = new JProgressBar();
+		this.progressBar.setOrientation(SwingConstants.VERTICAL);
+		this.progressBar.setOpaque(true);
+		this.progressBar.addMouseListener(new ProgressBarMouseListener());
+		this.progressBar.setBounds(827, 95, 456, 15);
+		this.contentPane.add(this.progressBar);
+		this.progressBar.setIgnoreRepaint(true);
+		this.progressBar.setVerifyInputWhenFocusTarget(false);
+		this.progressBar.setEnabled(false);
+		this.progressBar.setForeground(Color.BLACK);
+		this.progressBar.setBackground(Color.WHITE);
+		progressBar.setBorderPainted(false);
+		this.progressBar.setIndeterminate(true);
+
+		this.tfDate = new JTextField("");
+		tfDate.setEditable(false);
+		this.tfDate.setHorizontalAlignment(SwingConstants.RIGHT);
+		this.tfDate.setForeground(new Color(0, 0, 255));
+		this.tfDate.setFont(new Font("DS-Digital", Font.BOLD, 35));
+		this.tfDate.setColumns(10);
+		this.tfDate.setBorder(null);
+		this.tfDate.setBackground(new Color(255, 255, 255));
+		this.tfDate.setBounds(1077, 58, 206, 32);
+		this.contentPane.add(this.tfDate);
+
+		this.tfTime = new JTextField("");
+		tfTime.setEditable(false);
+		this.tfTime.setHorizontalAlignment(SwingConstants.LEFT);
+		this.tfTime.setForeground(new Color(0, 128, 0));
+		this.tfTime.setFont(new Font("DS-Digital", Font.BOLD, 35));
+		this.tfTime.setColumns(10);
+		this.tfTime.setBorder(null);
+		this.tfTime.setBackground(Color.WHITE);
+		this.tfTime.setBounds(827, 58, 251, 32);
+		this.contentPane.add(this.tfTime);
+
+		this.panel_1 = new JPanel();
+		this.panel_1.setBounds(446, 122, 366, 158);
+		this.contentPane.add(this.panel_1);
+		this.panel_1.setLayout(null);
+		this.panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 3));
+
+		this.taPayment = new JTextArea("");
+		this.taPayment.addKeyListener(new TaPaymentKeyListener());
+		this.taPayment.setToolTipText("\u0627\u06CC\u0646 \u062C\u0627  \u0645\u0642\u062F\u0627\u0631 \u067E\u0648\u0644 \u06A9\u0647 \u0627\u0632 \u0645\u0634\u062A\u0631\u06CC \u0645\u06CC\u06AF\u06CC\u0631\u062F \u062F\u0627\u062E\u0644 \u06A9\u0646\u06CC\u062F ! ");
+		this.taPayment.setBounds(3, 3, 360, 93);
+		this.panel_1.add(this.taPayment);
+		this.taPayment.setForeground(Color.BLUE);
+		this.taPayment.setBackground(Color.WHITE);
+		this.taPayment.setFont(new Font("Tahoma", Font.BOLD, 70));
+		this.taPayment.setBorder(new TitledBorder(new LineBorder(new Color(204, 204, 0)), "CUSTOMER PAYMENT DISPLAY", TitledBorder.CENTER, TitledBorder.TOP, null, Color.RED));
+
+		this.tfChange = new JTextField("");
+		this.tfChange.setToolTipText("\u0645\u0642\u062F\u0627\u0631 \u06A9\u0647 \u0628\u0627\u06CC\u062F \u067E\u0631\u062F\u0627\u062E\u062A\u0647  \u0634\u0648\u062F ");
+		this.tfChange.setBounds(150, 102, 130, 50);
+		this.panel_1.add(this.tfChange);
+		this.tfChange.setHorizontalAlignment(SwingConstants.CENTER);
+		this.tfChange.setForeground(Color.RED);
+		this.tfChange.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		this.tfChange.setBorder(null);
+		this.tfChange.setBackground(Color.ORANGE);
+
+		this.txtChange = new JTextField("PAY ME ");
+		this.txtChange.setEditable(false);
+		this.txtChange.setHorizontalAlignment(SwingConstants.CENTER);
+		this.txtChange.setForeground(Color.BLACK);
+		this.txtChange.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		this.txtChange.setBorder(null);
+		this.txtChange.setBackground(new Color(255, 153, 0));
+		this.txtChange.setBounds(5, 102, 143, 50);
+		this.panel_1.add(this.txtChange);
+
+		this.tfVaucher = new JTextField("0.0");
+		this.tfVaucher.setToolTipText("\u0645\u0642\u062F\u0627\u0631  \u06A9\u0631\u062F\u062A \u0645\u0634\u062A\u0631\u06CC  \u0627\u0632  \u062F\u0631\u06A9  \u06A9\u0648\u067E\u0627 \u0646 ");
+		this.tfVaucher.setHorizontalAlignment(SwingConstants.CENTER);
+		this.tfVaucher.setForeground(Color.GREEN);
+		this.tfVaucher.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		this.tfVaucher.setBorder(null);
+		this.tfVaucher.setBackground(new Color(255, 255, 153));
+		this.tfVaucher.setBounds(283, 102, 80, 50);
+		this.panel_1.add(this.tfVaucher);
+
+		this.panel = new JPanel();
+		this.panel.setBackground(Color.WHITE);
+		this.panel.setBorder(new LineBorder(new Color(0, 0, 0), 3));
+		this.panel.setBounds(80, 122, 353, 457);
+		this.contentPane.add(this.panel);
+		this.panel.setLayout(null);
+
+		this.jcChickenBurger = new JComboBox();
+		this.jcChickenBurger.setForeground(new Color(0, 0, 0));
+		this.jcChickenBurger.setBackground(new Color(204, 204, 153));
+		this.jcChickenBurger.setBorder(new LineBorder(new Color(204, 204, 153), 5));
+		this.jcChickenBurger.setFont(new Font("Constantia", Font.BOLD, 16));
+		this.jcChickenBurger.addActionListener(new JcChickenBurgerActionListener());
+		this.jcChickenBurger
+				.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+		this.jcChickenBurger.setBounds(126, 67, 54, 40);
+		this.panel.add(this.jcChickenBurger);
+
+		this.jcBeafBurger = new JComboBox();
+		this.jcBeafBurger.setForeground(new Color(0, 0, 0));
+		this.jcBeafBurger.setBackground(new Color(204, 204, 153));
+		this.jcBeafBurger.setBorder(new LineBorder(new Color(204, 204, 153), 5));
+		this.jcBeafBurger.setFont(new Font("Constantia", Font.BOLD, 16));
+		this.jcBeafBurger.addActionListener(new JcBeafBurgerActionListener());
+		this.jcBeafBurger
+				.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+		this.jcBeafBurger.setBounds(126, 110, 54, 40);
+		this.panel.add(this.jcBeafBurger);
+
+		this.jcBeanBurger = new JComboBox();
+		this.jcBeanBurger.setForeground(new Color(0, 0, 0));
+		this.jcBeanBurger.setBackground(new Color(204, 204, 153));
+		this.jcBeanBurger.setBorder(new LineBorder(new Color(204, 204, 153), 5));
+		this.jcBeanBurger.setFont(new Font("Constantia", Font.BOLD, 16));
+		this.jcBeanBurger.addActionListener(new JcBeanBurgerActionListener());
+		this.jcBeanBurger
+				.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+		this.jcBeanBurger.setBounds(126, 153, 54, 40);
+		this.panel.add(this.jcBeanBurger);
+
+		this.jcSoftDrink = new JComboBox();
+		this.jcSoftDrink.setForeground(new Color(0, 0, 0));
+		this.jcSoftDrink.setBackground(new Color(204, 204, 153));
+		this.jcSoftDrink.setBorder(null);
+		this.jcSoftDrink.setFont(new Font("Franklin Gothic Medium Cond", Font.PLAIN, 15));
+		this.jcSoftDrink.addActionListener(new CbSdrinkActionListener());
+		this.jcSoftDrink.setModel(new DefaultComboBoxModel(new String[] { "SoftDrink", "Coca Cola", "Fanta", "Sprite",
+				"SevenUp", "Tango", "Pepsi", "Miranda", "Cancel" }));
+		this.jcSoftDrink.setBounds(12, 196, 112, 40);
+		this.panel.add(this.jcSoftDrink);
+
+		this.cbVAT = new JCheckBox("VAT");
+		this.cbVAT.setToolTipText("\u062A\u06A9\u0633   \u0645\u0648\u0627\u062F  \u062E\u0631\u06CC\u062F\u0627\u0631\u06CC  \u0634\u062F\u0647 ");
+		this.cbVAT.addMouseListener(new CbVATMouseListener());
+		this.cbVAT.setBounds(126, 10, 54, 52);
+		this.panel.add(this.cbVAT);
+
+		this.cbHomeDelivery = new JCheckBox("Home Delivery");
+		this.cbHomeDelivery.setToolTipText("\u062E\u062F\u0645\u0627\u062A  \u0631\u0633\u0627\u0646\u062F\u0646  \u0628\u0647  \u062E\u0627\u0646\u0647  \u0645\u0634\u062A\u0631\u06CC  ");
+		this.cbHomeDelivery.addMouseListener(new ChckbxHomeDeliveryMouseListener());
+		this.cbHomeDelivery.setBounds(12, 10, 112, 52);
+		this.panel.add(this.cbHomeDelivery);
+
+		this.displayCB = new JTextField(" 0.0");
+		this.displayCB.addMouseListener(new DisplayCBMouseListener());
+		this.displayCB.setBackground(Color.WHITE);
+		this.displayCB.setForeground(Color.BLACK);
+		this.displayCB.setBorder(null);
+		this.displayCB.setEditable(false);
+		this.displayCB.setFont(new Font("Tahoma", Font.BOLD, 15));
+		this.displayCB.setHorizontalAlignment(SwingConstants.CENTER);
+		this.displayCB.setBounds(183, 67, 79, 40);
+		this.panel.add(this.displayCB);
+		this.displayCB.setColumns(10);
+
+		this.displayBB = new JTextField(" 0.0");
+		this.displayBB.addMouseListener(new DisplayBBMouseListener());
+		this.displayBB.setBackground(Color.WHITE);
+		this.displayBB.setForeground(Color.BLACK);
+		this.displayBB.setBorder(null);
+		this.displayBB.setEditable(false);
+		this.displayBB.setFont(new Font("Tahoma", Font.BOLD, 15));
+		this.displayBB.setHorizontalAlignment(SwingConstants.CENTER);
+		this.displayBB.setColumns(10);
+		this.displayBB.setBounds(183, 110, 79, 40);
+		this.panel.add(this.displayBB);
+
+		this.displayBeB = new JTextField(" 0.0");
+		this.displayBeB.addMouseListener(new DisplayBeBMouseListener());
+		this.displayBeB.setBackground(Color.WHITE);
+		this.displayBeB.setForeground(Color.BLACK);
+		this.displayBeB.setBorder(null);
+		this.displayBeB.setEditable(false);
+		this.displayBeB.setFont(new Font("Tahoma", Font.BOLD, 15));
+		this.displayBeB.setHorizontalAlignment(SwingConstants.CENTER);
+		this.displayBeB.setColumns(10);
+		this.displayBeB.setBounds(183, 153, 79, 40);
+		this.panel.add(this.displayBeB);
+
+		this.displayDrink = new JTextField(" 0.0");
+		this.displayDrink.addMouseListener(new DisplayDrinkMouseListener());
+		this.displayDrink.setBackground(Color.WHITE);
+		this.displayDrink.setForeground(Color.BLACK);
+		this.displayDrink.setBorder(null);
+		this.displayDrink.setHorizontalAlignment(SwingConstants.CENTER);
+		this.displayDrink.setFont(new Font("Tahoma", Font.BOLD, 15));
+		this.displayDrink.setEditable(false);
+		this.displayDrink.setColumns(10);
+		this.displayDrink.setBounds(183, 196, 79, 40);
+		this.panel.add(this.displayDrink);
+
+		this.tfNumberOfDrink = new JTextField("0");
+		this.tfNumberOfDrink.setBackground(Color.ORANGE);
+		this.tfNumberOfDrink.setForeground(Color.BLACK);
+		this.tfNumberOfDrink.setBorder(new LineBorder(new Color(204, 204, 153), 5));
+		this.tfNumberOfDrink.setHorizontalAlignment(SwingConstants.CENTER);
+		this.tfNumberOfDrink.setEditable(false);
+		this.tfNumberOfDrink.setFont(new Font("Tahoma", Font.BOLD, 15));
+		this.tfNumberOfDrink.setBounds(304, 16, 37, 40);
+		this.panel.add(this.tfNumberOfDrink);
+		this.tfNumberOfDrink.setColumns(10);
+
+		this.jcLegs = new JComboBox();
+		this.jcLegs.addActionListener(new JcLegsActionListener());
+		this.jcLegs
+				.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+		this.jcLegs.setForeground(Color.BLACK);
+		this.jcLegs.setFont(new Font("Constantia", Font.BOLD, 16));
+		this.jcLegs.setBorder(new LineBorder(new Color(204, 204, 153), 5));
+		this.jcLegs.setBackground(new Color(204, 204, 153));
+		this.jcLegs.setBounds(126, 282, 54, 40);
+		this.panel.add(this.jcLegs);
+
+		this.jcWings = new JComboBox();
+		this.jcWings.addActionListener(new JcWingsActionListener());
+		this.jcWings
+				.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+		this.jcWings.setForeground(Color.BLACK);
+		this.jcWings.setFont(new Font("Constantia", Font.BOLD, 16));
+		this.jcWings.setBorder(new LineBorder(new Color(204, 204, 153), 5));
+		this.jcWings.setBackground(new Color(204, 204, 153));
+		this.jcWings.setBounds(126, 325, 54, 40);
+		this.panel.add(this.jcWings);
+
+		this.jcVegBurger = new JComboBox();
+		this.jcVegBurger.addActionListener(new JcVegBurgerActionListener());
+		this.jcVegBurger
+				.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+		this.jcVegBurger.setForeground(Color.BLACK);
+		this.jcVegBurger.setFont(new Font("Constantia", Font.BOLD, 16));
+		this.jcVegBurger.setBorder(new LineBorder(new Color(204, 204, 153), 5));
+		this.jcVegBurger.setBackground(new Color(204, 204, 153));
+		this.jcVegBurger.setBounds(126, 367, 54, 40);
+		this.panel.add(this.jcVegBurger);
+
+		this.displayL = new JTextField("0.0");
+		this.displayL.addMouseListener(new DisplayLMouseListener());
+		this.displayL.setHorizontalAlignment(SwingConstants.CENTER);
+		this.displayL.setForeground(Color.BLACK);
+		this.displayL.setFont(new Font("Tahoma", Font.BOLD, 15));
+		this.displayL.setEditable(false);
+		this.displayL.setColumns(10);
+		this.displayL.setBorder(null);
+		this.displayL.setBackground(Color.WHITE);
+		this.displayL.setBounds(183, 282, 79, 40);
+		this.panel.add(this.displayL);
+
+		this.displayW = new JTextField("0.0");
+		this.displayW.addMouseListener(new DisplayWMouseListener());
+		this.displayW.setHorizontalAlignment(SwingConstants.CENTER);
+		this.displayW.setForeground(Color.BLACK);
+		this.displayW.setFont(new Font("Tahoma", Font.BOLD, 15));
+		this.displayW.setEditable(false);
+		this.displayW.setColumns(10);
+		this.displayW.setBorder(null);
+		this.displayW.setBackground(Color.WHITE);
+		this.displayW.setBounds(183, 325, 79, 40);
+		this.panel.add(this.displayW);
+
+		this.displayVB = new JTextField("0.0");
+		this.displayVB.addMouseListener(new DisplayVBMouseListener());
+		this.displayVB.setHorizontalAlignment(SwingConstants.CENTER);
+		this.displayVB.setForeground(Color.BLACK);
+		this.displayVB.setFont(new Font("Tahoma", Font.BOLD, 15));
+		this.displayVB.setEditable(false);
+		this.displayVB.setColumns(10);
+		this.displayVB.setBorder(null);
+		this.displayVB.setBackground(Color.WHITE);
+		this.displayVB.setBounds(183, 367, 79, 40);
+		this.panel.add(this.displayVB);
+
+		this.jcBreast = new JComboBox();
+		this.jcBreast.addActionListener(new JcBreastActionListener());
+		this.jcBreast
+				.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+		this.jcBreast.setForeground(Color.BLACK);
+		this.jcBreast.setFont(new Font("Constantia", Font.BOLD, 16));
+		this.jcBreast.setBorder(new LineBorder(new Color(204, 204, 153), 5));
+		this.jcBreast.setBackground(new Color(204, 204, 153));
+		this.jcBreast.setBounds(126, 239, 54, 40);
+		this.panel.add(this.jcBreast);
+
+		this.displayB = new JTextField("0.0");
+		this.displayB.addMouseListener(new DisplayBMouseListener());
+		this.displayB.setHorizontalAlignment(SwingConstants.CENTER);
+		this.displayB.setForeground(Color.BLACK);
+		this.displayB.setFont(new Font("Tahoma", Font.BOLD, 15));
+		this.displayB.setEditable(false);
+		this.displayB.setColumns(10);
+		this.displayB.setBorder(null);
+		this.displayB.setBackground(Color.WHITE);
+		this.displayB.setBounds(183, 239, 79, 40);
+		this.panel.add(this.displayB);
+
+		this.jcFries = new JComboBox();
+		this.jcFries.addActionListener(new JcFriesActionListener());
+		this.jcFries
+				.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+		this.jcFries.setForeground(Color.BLACK);
+		this.jcFries.setFont(new Font("Constantia", Font.BOLD, 16));
+		this.jcFries.setBorder(new LineBorder(new Color(204, 204, 153), 5));
+		this.jcFries.setBackground(new Color(204, 204, 153));
+		this.jcFries.setBounds(126, 409, 54, 40);
+		this.panel.add(this.jcFries);
+
+		this.displayFries = new JTextField("0.0");
+		this.displayFries.addMouseListener(new DisplayFriesMouseListener());
+		this.displayFries.setHorizontalAlignment(SwingConstants.CENTER);
+		this.displayFries.setForeground(Color.BLACK);
+		this.displayFries.setFont(new Font("Tahoma", Font.BOLD, 15));
+		this.displayFries.setEditable(false);
+		this.displayFries.setColumns(10);
+		this.displayFries.setBorder(null);
+		this.displayFries.setBackground(Color.WHITE);
+		this.displayFries.setBounds(183, 409, 79, 40);
+		this.panel.add(this.displayFries);
+
+		this.txtChips = new JTextField("Chips");
+		try {
+			ResultSet chips1 = stmt.executeQuery("SELECT  name from txt where id = 'Chips'");
+			if (chips1.next()) {
+				String name = chips1.getString("name");
+				txtChips.setText(name);
+			}
+		} catch (Exception any) {
+		}
+
+		this.txtChips.addMouseListener(new TxtChipsMouseListener());
+		this.txtChips.setHorizontalAlignment(SwingConstants.CENTER);
+		this.txtChips.setForeground(Color.BLACK);
+		this.txtChips.setFont(new Font("Franklin Gothic Medium Cond", Font.PLAIN, 15));
+		this.txtChips.setEditable(false);
+		this.txtChips.setColumns(10);
+		this.txtChips.setBorder(new LineBorder(new Color(204, 204, 153), 3));
+		this.txtChips.setBackground(new Color(204, 204, 102));
+		this.txtChips.setBounds(12, 409, 112, 40);
+		this.panel.add(this.txtChips);
+
+		this.txtVegeBurger = new JTextField("Vege Burger");
+		try {
+			ResultSet vegeBurger = stmt.executeQuery("SELECT  name from txt where id = 'Vege Burger'");
+
+			if (vegeBurger.next()) {
+				String name = vegeBurger.getString("name");
+				txtVegeBurger.setText(name);
+			}
+		} catch (Exception any) {
+		}
+		this.txtVegeBurger.addMouseListener(new TxtVegeBurgerMouseListener());
+		this.txtVegeBurger.setHorizontalAlignment(SwingConstants.CENTER);
+		this.txtVegeBurger.setForeground(Color.BLACK);
+		this.txtVegeBurger.setFont(new Font("Franklin Gothic Medium Cond", Font.PLAIN, 15));
+		this.txtVegeBurger.setEditable(false);
+		this.txtVegeBurger.setColumns(10);
+		this.txtVegeBurger.setBorder(new LineBorder(new Color(204, 204, 153), 3));
+		this.txtVegeBurger.setBackground(new Color(204, 204, 102));
+		this.txtVegeBurger.setBounds(12, 367, 112, 40);
+		this.panel.add(this.txtVegeBurger);
+
+		this.txtWings = new JTextField("Wings");
+		try {
+			ResultSet wings = stmt.executeQuery("SELECT  name from txt where id = 'Wings'");
+			if (wings.next()) {
+				String name = wings.getString("name");
+				txtWings.setText(name);
+			}
+		} catch (Exception any) {
+		}
+		this.txtWings.addMouseListener(new TxtWingsMouseListener());
+		this.txtWings.setHorizontalAlignment(SwingConstants.CENTER);
+		this.txtWings.setForeground(Color.BLACK);
+		this.txtWings.setFont(new Font("Franklin Gothic Medium Cond", Font.PLAIN, 15));
+		this.txtWings.setEditable(false);
+		this.txtWings.setColumns(10);
+		this.txtWings.setBorder(new LineBorder(new Color(204, 204, 153), 3));
+		this.txtWings.setBackground(new Color(204, 204, 102));
+		this.txtWings.setBounds(12, 325, 112, 40);
+		this.panel.add(this.txtWings);
+
+		this.txtLegs = new JTextField("Legs");
+		this.txtLegs.addMouseListener(new TxtLegsMouseListener());
+		try {
+			ResultSet chips4 = stmt.executeQuery("SELECT  name from txt where id = '" + txtLegs.getText() + "'");
+			if (chips4.next()) {
+				String name = chips4.getString("name");
+				txtLegs.setText(name);
+			}
+		} catch (Exception any) {
+		}
+		this.txtLegs.setHorizontalAlignment(SwingConstants.CENTER);
+		this.txtLegs.setForeground(Color.BLACK);
+		this.txtLegs.setFont(new Font("Franklin Gothic Medium Cond", Font.PLAIN, 15));
+		this.txtLegs.setEditable(false);
+		this.txtLegs.setColumns(10);
+		this.txtLegs.setBorder(new LineBorder(new Color(204, 204, 153), 3));
+		this.txtLegs.setBackground(new Color(204, 204, 102));
+		this.txtLegs.setBounds(12, 282, 112, 40);
+		this.panel.add(this.txtLegs);
+
+		this.txtBreast = new JTextField("Breast");
+		this.txtBreast.addMouseListener(new TxtBreastMouseListener());
+		try {
+			ResultSet chips3 = stmt.executeQuery("SELECT  name from txt where id = '" + txtBreast.getText() + "'");
+			if (chips3.next()) {
+				String name = chips3.getString("name");
+				txtBreast.setText(name);
+			}
+		} catch (Exception any) {
+		}
+		this.txtBreast.setHorizontalAlignment(SwingConstants.CENTER);
+		this.txtBreast.setForeground(Color.BLACK);
+		this.txtBreast.setFont(new Font("Franklin Gothic Medium Cond", Font.PLAIN, 15));
+		this.txtBreast.setEditable(false);
+		this.txtBreast.setColumns(10);
+		this.txtBreast.setBorder(new LineBorder(new Color(204, 204, 153), 3));
+		this.txtBreast.setBackground(new Color(204, 204, 102));
+		this.txtBreast.setBounds(12, 239, 112, 40);
+		this.panel.add(this.txtBreast);
+
+		this.txtBeanBurger = new JTextField("beanBurger");
+		this.txtBeanBurger.addMouseListener(new TxtBeanBurgerMouseListener());
+
+		try {
+			ResultSet chips5 = stmt.executeQuery("SELECT  name from txt where id = '" + txtBeanBurger.getText() + "'");
+			if (chips5.next()) {
+				String name = chips5.getString("name");
+				txtBeanBurger.setText(name);
+			}
+		} catch (Exception any) {
+		}
+		this.txtBeanBurger.setHorizontalAlignment(SwingConstants.CENTER);
+		this.txtBeanBurger.setForeground(Color.BLACK);
+		this.txtBeanBurger.setFont(new Font("Franklin Gothic Medium Cond", Font.PLAIN, 15));
+		this.txtBeanBurger.setEditable(false);
+		this.txtBeanBurger.setColumns(10);
+		this.txtBeanBurger.setBorder(new LineBorder(new Color(204, 204, 153), 3));
+		this.txtBeanBurger.setBackground(new Color(204, 204, 102));
+		this.txtBeanBurger.setBounds(12, 153, 112, 40);
+		this.panel.add(this.txtBeanBurger);
+
+		this.txtBeafBurger = new JTextField("beafBurger");
+		this.txtBeafBurger.addMouseListener(new TxtBeafBurgerMouseListener());
+		try {
+			ResultSet chips6 = stmt.executeQuery("SELECT  name from txt where id = '" + txtBeafBurger.getText() + "'");
+			if (chips6.next()) {
+				String name = chips6.getString("name");
+				txtBeafBurger.setText(name);
+			}
+		} catch (Exception any) {
+		}
+		this.txtBeafBurger.setHorizontalAlignment(SwingConstants.CENTER);
+		this.txtBeafBurger.setForeground(Color.BLACK);
+		this.txtBeafBurger.setFont(new Font("Franklin Gothic Medium Cond", Font.PLAIN, 15));
+		this.txtBeafBurger.setEditable(false);
+		this.txtBeafBurger.setColumns(10);
+		this.txtBeafBurger.setBorder(new LineBorder(new Color(204, 204, 153), 3));
+		this.txtBeafBurger.setBackground(new Color(204, 204, 102));
+		this.txtBeafBurger.setBounds(12, 110, 112, 40);
+		this.panel.add(this.txtBeafBurger);
+
+		this.txtChickenBurger = new JTextField("chicenBurger");
+		this.txtChickenBurger.addMouseListener(new TxtChickenBurgerMouseListener());
+		try {
+			ResultSet chips7 = stmt
+					.executeQuery("SELECT  name from txt where id = '" + txtChickenBurger.getText() + "'");
+			if (chips7.next()) {
+				String name = chips7.getString("name");
+				txtChickenBurger.setText(name);
+			}
+		} catch (Exception any) {
+		}
+		this.txtChickenBurger.setHorizontalAlignment(SwingConstants.CENTER);
+		this.txtChickenBurger.setForeground(Color.BLACK);
+		this.txtChickenBurger.setFont(new Font("Franklin Gothic Medium Cond", Font.PLAIN, 15));
+		this.txtChickenBurger.setEditable(false);
+		this.txtChickenBurger.setColumns(10);
+		this.txtChickenBurger.setBorder(new LineBorder(new Color(204, 204, 153), 3));
+		this.txtChickenBurger.setBackground(new Color(204, 204, 102));
+		this.txtChickenBurger.setBounds(12, 67, 112, 40);
+		this.panel.add(this.txtChickenBurger);
+
+		this.textField = new JLabel("chicenBurger");
+		this.textField.setIcon(new ImageIcon(Restuarant.class.getResource("/Food/ashak.JPG")));
+		this.textField.setHorizontalAlignment(SwingConstants.LEFT);
+		this.textField.setForeground(Color.BLACK);
+		this.textField.setFont(new Font("Franklin Gothic Medium Cond", Font.PLAIN, 15));
+		this.textField.setBorder(null);
+		this.textField.setBackground(Color.WHITE);
+		this.textField.setBounds(263, 67, 82, 40);
+		this.panel.add(this.textField);
+
+		this.label = new JLabel("chicenBurger");
+		this.label.setIcon(new ImageIcon(Restuarant.class.getResource("/Food/qabilyUzbaki.jpg")));
+		this.label.setHorizontalAlignment(SwingConstants.LEFT);
+		this.label.setForeground(Color.BLACK);
+		this.label.setFont(new Font("Franklin Gothic Medium Cond", Font.PLAIN, 15));
+		this.label.setBorder(null);
+		this.label.setBackground(Color.WHITE);
+		this.label.setBounds(263, 110, 82, 40);
+		this.panel.add(this.label);
+
+		this.label_1 = new JLabel("chicenBurger");
+		this.label_1.setIcon(new ImageIcon(Restuarant.class.getResource("/Food/palaw.JPG")));
+		this.label_1.setHorizontalAlignment(SwingConstants.LEFT);
+		this.label_1.setForeground(Color.BLACK);
+		this.label_1.setFont(new Font("Franklin Gothic Medium Cond", Font.PLAIN, 15));
+		this.label_1.setBorder(null);
+		this.label_1.setBackground(Color.WHITE);
+		this.label_1.setBounds(263, 153, 82, 40);
+		this.panel.add(this.label_1);
+
+		this.label_2 = new JLabel("chicenBurger");
+		this.label_2.setIcon(new ImageIcon(Restuarant.class.getResource("/Food/soft_drnks.jpg")));
+		this.label_2.setHorizontalAlignment(SwingConstants.LEFT);
+		this.label_2.setForeground(Color.BLACK);
+		this.label_2.setFont(new Font("Franklin Gothic Medium Cond", Font.PLAIN, 15));
+		this.label_2.setBorder(null);
+		this.label_2.setBackground(Color.WHITE);
+		this.label_2.setBounds(263, 196, 82, 40);
+		this.panel.add(this.label_2);
+
+		this.label_3 = new JLabel("chicenBurger");
+		this.label_3.setIcon(new ImageIcon(Restuarant.class.getResource("/Food/karahi.jpg")));
+		this.label_3.setHorizontalAlignment(SwingConstants.LEFT);
+		this.label_3.setForeground(Color.BLACK);
+		this.label_3.setFont(new Font("Franklin Gothic Medium Cond", Font.PLAIN, 15));
+		this.label_3.setBorder(null);
+		this.label_3.setBackground(Color.WHITE);
+		this.label_3.setBounds(263, 240, 82, 40);
+		this.panel.add(this.label_3);
+
+		this.label_4 = new JLabel("chicenBurger");
+		this.label_4.setIcon(new ImageIcon(Restuarant.class.getResource("/Food/manto.jpg")));
+		this.label_4.setHorizontalAlignment(SwingConstants.LEFT);
+		this.label_4.setForeground(Color.BLACK);
+		this.label_4.setFont(new Font("Franklin Gothic Medium Cond", Font.PLAIN, 15));
+		this.label_4.setBorder(null);
+		this.label_4.setBackground(Color.WHITE);
+		this.label_4.setBounds(264, 282, 82, 40);
+		this.panel.add(this.label_4);
+
+		this.label_5 = new JLabel("chicenBurger");
+		this.label_5.setIcon(new ImageIcon(Restuarant.class.getResource("/Food/chickenKebab.jpeg")));
+		this.label_5.setHorizontalAlignment(SwingConstants.LEFT);
+		this.label_5.setForeground(Color.BLACK);
+		this.label_5.setFont(new Font("Franklin Gothic Medium Cond", Font.PLAIN, 15));
+		this.label_5.setBorder(null);
+		this.label_5.setBackground(Color.WHITE);
+		this.label_5.setBounds(264, 325, 82, 40);
+		this.panel.add(this.label_5);
+
+		this.label_7 = new JLabel("chicenBurger");
+		this.label_7.setIcon(new ImageIcon(Restuarant.class.getResource("/Food/kebabqaila.jpg")));
+		this.label_7.setHorizontalAlignment(SwingConstants.LEFT);
+		this.label_7.setForeground(Color.BLACK);
+		this.label_7.setFont(new Font("Franklin Gothic Medium Cond", Font.PLAIN, 15));
+		this.label_7.setBorder(null);
+		this.label_7.setBackground(Color.WHITE);
+		this.label_7.setBounds(264, 368, 82, 40);
+		this.panel.add(this.label_7);
+
+		this.label_8 = new JLabel("chicenBurger");
+		this.label_8.setIcon(new ImageIcon(Restuarant.class.getResource("/Food/qabilyUzbaki.jpg")));
+		this.label_8.setHorizontalAlignment(SwingConstants.LEFT);
+		this.label_8.setForeground(Color.BLACK);
+		this.label_8.setFont(new Font("Franklin Gothic Medium Cond", Font.PLAIN, 15));
+		this.label_8.setBorder(null);
+		this.label_8.setBackground(Color.WHITE);
+		this.label_8.setBounds(264, 409, 82, 40);
+		this.panel.add(this.label_8);
+
+		this.comboBox = new JComboBox();
+		this.comboBox.addActionListener(new ComboBoxActionListener());
+		this.comboBox
+				.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+		this.comboBox.setForeground(Color.BLACK);
+		this.comboBox.setFont(new Font("Constantia", Font.BOLD, 16));
+		this.comboBox.setBorder(new LineBorder(new Color(204, 204, 153), 5));
+		this.comboBox.setBackground(new Color(204, 204, 153));
+		this.comboBox.setBounds(126, 196, 54, 40);
+		this.panel.add(this.comboBox);
+
+		this.lblDrinks = new JLabel("Drinks  x ");
+		this.lblDrinks.setHorizontalAlignment(SwingConstants.CENTER);
+		this.lblDrinks.setFont(new Font("Franklin Gothic Book", Font.BOLD, 15));
+		this.lblDrinks.setBounds(192, 16, 112, 38);
+		this.panel.add(this.lblDrinks);
+
+		this.panel_2 = new JPanel();
+		this.panel_2.setBorder(new LineBorder(new Color(0, 0, 0), 3));
+		this.panel_2.setBounds(446, 288, 366, 142);
+		this.contentPane.add(this.panel_2);
+		this.panel_2.setLayout(null);
+
+		this.lblCostOfMeal = new JLabel("Cost of Meal");
+		this.lblCostOfMeal.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		this.lblCostOfMeal.setBounds(23, 22, 141, 23);
+		this.panel_2.add(this.lblCostOfMeal);
+
+		this.lblCostOfDrink = new JLabel("Cost of Drink");
+		this.lblCostOfDrink.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		this.lblCostOfDrink.setBounds(23, 60, 141, 23);
+		this.panel_2.add(this.lblCostOfDrink);
+
+		this.lblCostOfDelivery = new JLabel("Cost of Delivery");
+		this.lblCostOfDelivery.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		this.lblCostOfDelivery.setBounds(23, 98, 141, 23);
+		this.panel_2.add(this.lblCostOfDelivery);
+
+		this.lblMeal = new JLabel(" 0.0");
+		this.lblMeal.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		this.lblMeal.setHorizontalAlignment(SwingConstants.CENTER);
+		this.lblMeal.setBorder(null);
+		this.lblMeal.setBounds(171, 17, 151, 31);
+		this.panel_2.add(this.lblMeal);
+
+		this.lblDrink = new JLabel(" 0.0");
+		this.lblDrink.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		this.lblDrink.setHorizontalAlignment(SwingConstants.CENTER);
+		this.lblDrink.setBorder(null);
+		this.lblDrink.setBounds(171, 56, 151, 31);
+		this.panel_2.add(this.lblDrink);
+
+		this.lblDelivery = new JLabel(" 0.0");
+		this.lblDelivery.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		this.lblDelivery.setHorizontalAlignment(SwingConstants.CENTER);
+		this.lblDelivery.setBorder(null);
+		this.lblDelivery.setBounds(171, 94, 151, 31);
+		this.panel_2.add(this.lblDelivery);
+
+		this.panel_3 = new JPanel();
+		this.panel_3.setBorder(new LineBorder(new Color(0, 0, 0), 3));
+		this.panel_3.setBounds(447, 436, 366, 143);
+		this.contentPane.add(this.panel_3);
+		this.panel_3.setLayout(null);
+
+		this.lblSubTotal1 = new JLabel("Sub Total :");
+		this.lblSubTotal1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		this.lblSubTotal1.setBounds(24, 21, 141, 23);
+		this.panel_3.add(this.lblSubTotal1);
+
+		this.lblVat1 = new JLabel("VAT @ 16% : ");
+		this.lblVat1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		this.lblVat1.setBounds(24, 58, 141, 23);
+		this.panel_3.add(this.lblVat1);
+
+		this.lblTotal1 = new JLabel("Total to Pay: ");
+		this.lblTotal1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		this.lblTotal1.setBounds(24, 95, 141, 23);
+		this.panel_3.add(this.lblTotal1);
+
+		this.lblSubTotal = new JLabel(" 0.0");
+		this.lblSubTotal.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		this.lblSubTotal.setHorizontalAlignment(SwingConstants.CENTER);
+		this.lblSubTotal.setBorder(null);
+		this.lblSubTotal.setBounds(175, 18, 151, 31);
+		this.panel_3.add(this.lblSubTotal);
+
+		this.lblVAT = new JLabel(" 0.0");
+		this.lblVAT.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		this.lblVAT.setHorizontalAlignment(SwingConstants.CENTER);
+		this.lblVAT.setBorder(null);
+		this.lblVAT.setBounds(175, 54, 151, 31);
+		this.panel_3.add(this.lblVAT);
+
+		this.lblTotal = new JLabel(" 0.0");
+		this.lblTotal.setForeground(Color.RED);
+		this.lblTotal.setBackground(Color.WHITE);
+		this.lblTotal.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		this.lblTotal.setHorizontalAlignment(SwingConstants.CENTER);
+		this.lblTotal.setBorder(null);
+		this.lblTotal.setBounds(175, 90, 151, 40);
+		this.panel_3.add(this.lblTotal);
+
+		this.panel_4 = new JPanel();
+		this.panel_4.setBorder(new LineBorder(new Color(0, 0, 0), 3));
+		this.panel_4.setBackground(Color.WHITE);
+		this.panel_4.setBounds(827, 122, 458, 457);
+		this.contentPane.add(this.panel_4);
+		this.panel_4.setLayout(null);
+
+		this.rdbtnAdmin = new JRadioButton("ADMINISTRATOR");
+		this.rdbtnAdmin.setToolTipText("\u0645\u062F\u06CC\u0631  \u0645\u0633\u0648\u0644   ");
+		this.rdbtnAdmin.addActionListener(new RdbtnAdminActionListener());
+		this.rdbtnAdmin.setForeground(new Color(255, 0, 0));
+		this.rdbtnAdmin.setBackground(new Color(204, 204, 153));
+		this.rdbtnAdmin.setBounds(324, 11, 125, 18);
+		this.panel_4.add(this.rdbtnAdmin);
+
+		this.tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		this.tabbedPane.setAutoscrolls(true);
+		this.tabbedPane.setForeground(new Color(0, 0, 0));
+		this.tabbedPane.setBackground(new Color(204, 204, 153));
+		this.tabbedPane.setBorder(null);
+		this.tabbedPane.setBounds(10, 11, 439, 345);
+		this.panel_4.add(this.tabbedPane);
+
+		this.paCalculator = new JPanel();
+		this.paCalculator.setBorder(new LineBorder(new Color(204, 204, 102), 15));
+		this.paCalculator.setBackground(new Color(204, 204, 153));
+		this.tabbedPane.addTab("CALCULATOR ", null, this.paCalculator, null);
+		this.paCalculator.setLayout(null);
+
+		this.taCalculator = new JTextArea();
+		this.taCalculator.setToolTipText("\u0645\u0627\u0634\u06CC\u0646  \u062D\u0633\u0627\u0628  ");
+		this.taCalculator.setEditable(false);
+		this.taCalculator.setForeground(Color.BLUE);
+		this.taCalculator.setBackground(new Color(255, 255, 102));
+
+		this.taCalculator.setFont(new Font("DS-Digital", Font.PLAIN, 40));
+		this.taCalculator.setBounds(167, 27, 213, 41);
+		this.paCalculator.add(this.taCalculator);
+
+		this.btnNewButton = new JButton("1");
+		this.btnNewButton.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		this.btnNewButton.addActionListener(new BtnNewButtonActionListener());
+		this.btnNewButton.setBackground(Color.WHITE);
+		this.btnNewButton.setForeground(new Color(0, 0, 0));
+		this.btnNewButton.setFont(new Font("Serif", Font.BOLD, 30));
+		this.btnNewButton.setBounds(52, 72, 50, 50);
+		this.paCalculator.add(this.btnNewButton);
+
+		this.button = new JButton("2");
+		this.button.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		this.button.addActionListener(new ButtonActionListener());
+		this.button.setBackground(Color.WHITE);
+		this.button.setForeground(new Color(0, 0, 0));
+		this.button.setFont(new Font("Serif", Font.BOLD, 30));
+		this.button.setBounds(112, 72, 50, 50);
+		this.paCalculator.add(this.button);
+
+		this.button_1 = new JButton("3");
+		this.button_1.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		this.button_1.addActionListener(new Button_1ActionListener());
+		this.button_1.setBackground(Color.WHITE);
+		this.button_1.setForeground(new Color(0, 0, 0));
+		this.button_1.setFont(new Font("Serif", Font.BOLD, 30));
+		this.button_1.setBounds(172, 72, 50, 50);
+		this.paCalculator.add(this.button_1);
+
+		this.btnS = new JButton("\u2190");
+		this.btnS.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		this.btnS.addActionListener(new BtnSActionListener());
+		this.btnS.setBackground(Color.WHITE);
+		this.btnS.setForeground(new Color(0, 0, 0));
+		this.btnS.setFont(new Font("Serif", Font.BOLD, 30));
+		this.btnS.setBounds(232, 72, 50, 50);
+		this.paCalculator.add(this.btnS);
+
+		this.button_3 = new JButton("4");
+		this.button_3.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		this.button_3.addActionListener(new Button_3ActionListener());
+		this.button_3.setBackground(Color.WHITE);
+		this.button_3.setForeground(new Color(0, 0, 0));
+		this.button_3.setFont(new Font("Serif", Font.BOLD, 30));
+		this.button_3.setBounds(52, 125, 50, 50);
+		this.paCalculator.add(this.button_3);
+
+		this.button_4 = new JButton("7");
+		this.button_4.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		this.button_4.addActionListener(new Button_4ActionListener());
+		this.button_4.setBackground(Color.WHITE);
+		this.button_4.setForeground(new Color(0, 0, 0));
+		this.button_4.setFont(new Font("Serif", Font.BOLD, 30));
+		this.button_4.setBounds(52, 179, 50, 50);
+		this.paCalculator.add(this.button_4);
+
+		this.button_5 = new JButton("5");
+		this.button_5.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		this.button_5.addActionListener(new Button_5ActionListener());
+		this.button_5.setBackground(Color.WHITE);
+		this.button_5.setForeground(new Color(0, 0, 0));
+		this.button_5.setFont(new Font("Serif", Font.BOLD, 30));
+		this.button_5.setBounds(112, 125, 50, 50);
+		this.paCalculator.add(this.button_5);
+
+		this.button_6 = new JButton("8");
+		this.button_6.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		this.button_6.addActionListener(new Button_6ActionListener());
+		this.button_6.setBackground(Color.WHITE);
+		this.button_6.setForeground(new Color(0, 0, 0));
+		this.button_6.setFont(new Font("Serif", Font.BOLD, 30));
+		this.button_6.setBounds(112, 179, 50, 50);
+		this.paCalculator.add(this.button_6);
+
+		this.button_7 = new JButton("6");
+		this.button_7.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		this.button_7.addActionListener(new Button_7ActionListener());
+		this.button_7.setBackground(Color.WHITE);
+		this.button_7.setForeground(new Color(0, 0, 0));
+		this.button_7.setFont(new Font("Serif", Font.BOLD, 30));
+		this.button_7.setBounds(172, 125, 50, 50);
+		this.paCalculator.add(this.button_7);
+
+		this.button_8 = new JButton("9");
+		this.button_8.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		this.button_8.addActionListener(new Button_8ActionListener());
+		this.button_8.setBackground(Color.WHITE);
+		this.button_8.setForeground(new Color(0, 0, 0));
+		this.button_8.setFont(new Font("Serif", Font.BOLD, 30));
+		this.button_8.setBounds(172, 179, 50, 50);
+		this.paCalculator.add(this.button_8);
+
+		this.btnC = new JButton("c");
+		this.btnC.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		this.btnC.addActionListener(new BtnCActionListener());
+		this.btnC.setBackground(Color.WHITE);
+		this.btnC.setForeground(new Color(0, 0, 0));
+		this.btnC.setFont(new Font("Serif", Font.BOLD, 30));
+		this.btnC.setBounds(232, 125, 50, 50);
+		this.paCalculator.add(this.btnC);
+
+		this.button_10 = new JButton("+/-");
+		this.button_10.addActionListener(new Button_10ActionListener());
+		this.button_10.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		this.button_10.setBackground(Color.WHITE);
+		this.button_10.setForeground(new Color(0, 0, 0));
+		this.button_10.setFont(new Font("Serif", Font.BOLD, 30));
+		this.button_10.setBounds(232, 179, 50, 50);
+		this.paCalculator.add(this.button_10);
+
+		this.button_11 = new JButton(",");
+		this.button_11.addActionListener(new Button_11ActionListener());
+		this.button_11.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		this.button_11.setBackground(Color.WHITE);
+		this.button_11.setForeground(new Color(0, 0, 0));
+		this.button_11.setFont(new Font("Serif", Font.BOLD, 30));
+		this.button_11.setBounds(52, 235, 50, 50);
+		this.paCalculator.add(this.button_11);
+
+		this.button_12 = new JButton("0");
+		this.button_12.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		this.button_12.addActionListener(new Button_12ActionListener());
+		this.button_12.setBackground(Color.WHITE);
+		this.button_12.setForeground(new Color(0, 0, 0));
+		this.button_12.setFont(new Font("Serif", Font.BOLD, 30));
+		this.button_12.setBounds(112, 235, 50, 50);
+		this.paCalculator.add(this.button_12);
+
+		this.button_13 = new JButton("=");
+		this.button_13.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		this.button_13.addActionListener(new Button_13ActionListener());
+		this.button_13.setBackground(Color.WHITE);
+		this.button_13.setForeground(new Color(0, 0, 0));
+		this.button_13.setFont(new Font("Serif", Font.BOLD, 30));
+		this.button_13.setBounds(172, 235, 110, 50);
+		this.paCalculator.add(this.button_13);
+
+		this.button_15 = new JButton("+");
+		this.button_15.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		this.button_15.addActionListener(new Button_15ActionListener());
+		this.button_15.setBackground(Color.WHITE);
+		this.button_15.setForeground(new Color(0, 0, 0));
+		this.button_15.setFont(new Font("Serif", Font.BOLD, 30));
+		this.button_15.setBounds(292, 72, 89, 50);
+		this.paCalculator.add(this.button_15);
+
+		this.button_16 = new JButton("-");
+		this.button_16.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		this.button_16.addActionListener(new Button_16ActionListener());
+		this.button_16.setBackground(Color.WHITE);
+		this.button_16.setForeground(new Color(0, 0, 0));
+		this.button_16.setFont(new Font("Serif", Font.BOLD, 30));
+		this.button_16.setBounds(292, 125, 89, 50);
+		this.paCalculator.add(this.button_16);
+
+		this.button_17 = new JButton("*");
+		this.button_17.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		this.button_17.addActionListener(new Button_17ActionListener());
+		this.button_17.setBackground(Color.WHITE);
+		this.button_17.setForeground(new Color(0, 0, 0));
+		this.button_17.setFont(new Font("Serif", Font.BOLD, 30));
+		this.button_17.setBounds(292, 179, 89, 50);
+		this.paCalculator.add(this.button_17);
+
+		this.button_18 = new JButton("/");
+		this.button_18.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		this.button_18.addActionListener(new Button_18ActionListener());
+		this.button_18.setBackground(Color.WHITE);
+		this.button_18.setForeground(new Color(0, 0, 0));
+		this.button_18.setFont(new Font("Serif", Font.BOLD, 30));
+		this.button_18.setBounds(292, 234, 89, 50);
+		this.paCalculator.add(this.button_18);
+
+		this.tglbtnOnOff = new JToggleButton("CALCULATOR");
+		this.tglbtnOnOff.setToolTipText("\u0633\u0648\u0686  \u0627\u0633\u062A\u0641\u0627\u062F\u0647 \u0627\u0632 \u0645\u0627\u0634\u06CC\u0646 \u062D\u0633\u0627\u0628 ");
+		this.tglbtnOnOff.setBorder(new TitledBorder(new LineBorder(new Color(255, 175, 175), 2, true), "ON  /  OFF", TitledBorder.LEADING, TitledBorder.BELOW_TOP, null, new Color(255, 0, 0)));
+		this.tglbtnOnOff.addActionListener(new TglbtnOnOffActionListener());
+		this.tglbtnOnOff.setBounds(50, 27, 115, 43);
+		this.paCalculator.add(this.tglbtnOnOff);
+
+		this.paShopingList = new JPanel();
+		this.paShopingList.setBorder(new LineBorder(new Color(204, 204, 153), 10));
+		this.paShopingList.setBackground(new Color(204, 204, 153));
+		this.paShopingList.setPreferredSize(new Dimension(10, 5));
+		this.tabbedPane.addTab("SHOPPING BILL", null, this.paShopingList, null);
+		this.paShopingList.setLayout(null);
+
+		this.scrollPane = new JScrollPane();
+		this.scrollPane.setBackground(new Color(204, 204, 153));
+		this.scrollPane.setBorder(new LineBorder(new Color(204, 204, 153), 12));
+		this.scrollPane.setViewportBorder(null);
+		this.scrollPane.setBounds(10, 11, 414, 294);
+		this.paShopingList.add(this.scrollPane);
+
+		this.table = new JTable();
+		this.table.setOpaque(false);
+		this.table.setSelectionForeground(new Color(0, 204, 51));
+		this.table.setSelectionBackground(new Color(255, 255, 0));
+		this.table.setGridColor(Color.WHITE);
+		this.table.setSurrendersFocusOnKeystroke(true);
+		this.table.setShowHorizontalLines(false);
+		this.table.setShowVerticalLines(false);
+		this.table.addMouseListener(new TableMouseListener());
+		this.table.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		this.table.setForeground(Color.BLACK);
+		this.table.setBackground(Color.WHITE);
+		this.table.setModel(new DefaultTableModel(new Object[][] {},
+				new String[] { "No", "Item Name", "Total", "Portion", "VAT" }) {
+			public boolean isCellEditable(int row, int column) {
+				return false;
+			}
+		});
+		this.table.getColumnModel().getColumn(0).setPreferredWidth(5);
+		this.table.getColumnModel().getColumn(1).setPreferredWidth(100);
+		this.table.getColumnModel().getColumn(2).setPreferredWidth(55);
+		this.table.getColumnModel().getColumn(3).setPreferredWidth(55);
+		this.table.getColumnModel().getColumn(4).setPreferredWidth(15);
+		table.setAutoCreateRowSorter(true);
+		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+		centerRenderer.setHorizontalAlignment(JLabel.CENTER);
+		table.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+
+		this.scrollPane.setViewportView(this.table);
+
+		this.btnExit = new JButton("EXIT");
+		this.btnExit.setToolTipText("\u062E\u0631\u0648\u0686 \u0627\u0632 \u0628\u0631\u0646\u0627\u0645\u0647 ");
+		this.btnExit.setBorder(new LineBorder(new Color(204, 204, 153), 15, true));
+		this.btnExit.setFont(new Font("Stencil", Font.BOLD, 25));
+		this.btnExit.setBounds(324, 368, 120, 70);
+		this.panel_4.add(this.btnExit);
+		this.btnExit.setBackground(new Color(255, 255, 255));
+		this.btnExit.setForeground(new Color(255, 0, 0));
+
+		this.btnPrinter = new JToggleButton("");
+		this.btnPrinter.setToolTipText("\u067E\u0631\u06CC\u0646\u062A\u0631 \u0631\u0627 \u0686\u0627\u0644\u0627\u0646 \u06CC\u0627 \u062E\u0627\u0645\u0648\u0634 \u0645\u06CC\u0633\u0627\u0632\u062F ");
+		this.btnPrinter.setBorder(new LineBorder(new Color(204, 204, 153), 15, true));
+		this.btnPrinter.setBackground(new Color(255, 255, 255));
+		this.btnPrinter.setIcon(new ImageIcon(Restuarant.class.getResource("/Food/printerOff.png")));
+
+		this.btnPrinter.addActionListener(new BtnPrinterActionListener());
+		this.btnPrinter.setForeground(Color.BLACK);
+		this.btnPrinter.setFont(new Font("Tahoma", Font.BOLD, 24));
+		// this.btnPrinter.setBorder(new LineBorder(new Color(204, 204, 153),
+		// 15, true));
+		// this.btnPrinter.setBackground(new Color(255, 255, 255));
+		this.btnPrinter.setBounds(168, 370, 150, 70);
+		this.panel_4.add(this.btnPrinter);
+
+		this.btnEmail = new JButton("Email");
+		this.btnEmail.setToolTipText("\u0631\u0633\u06CC\u062F \u0631\u0627 \u0627\u06CC\u0645\u06CC\u0644 \u06A9\u0646\u06CC\u062F ");
+		this.btnEmail.addActionListener(new BtnEmailActionListener());
+		this.btnEmail.setFont(new Font("Stencil", Font.BOLD, 25));
+		this.btnEmail.setBorder(new LineBorder(new Color(204, 204, 153), 15, true));
+		this.btnEmail.setBounds(11, 371, 150, 70);
+		this.panel_4.add(this.btnEmail);
+		this.btnEmail.setBackground(new Color(255, 255, 255));
+		this.btnExit.addActionListener(new BtnExitActionListener());
+
+		this.paFooter = new JPanel();
+		this.paFooter.setBorder(new LineBorder(new Color(0, 0, 0), 3));
+		this.paFooter.setBounds(81, 590, 1206, 134);
+		this.contentPane.add(this.paFooter);
+		this.paFooter.setLayout(null);
+
+		this.btnTotal = new JButton("TOTAL");
+		this.btnTotal.setToolTipText("\u0645\u062C\u0645\u0648\u0639\u0647 ");
+		this.btnTotal.setForeground(new Color(0, 0, 0));
+		this.btnTotal.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		this.btnTotal.setBorder(new LineBorder(new Color(204, 204, 153), 20, true));
+		this.btnTotal.addActionListener(new BtnTotalActionListener());
+		this.btnTotal.setBackground(new Color(255, 255, 255));
+		this.btnTotal.setFont(new Font("Stencil", Font.BOLD, 33));
+		this.btnTotal.setBounds(725, 11, 235, 112);
+		this.paFooter.add(this.btnTotal);
+
+		this.btnReset = new JButton("CANCEL");
+		this.btnReset.setToolTipText("\u0644\u063A\u0648   \u06A9\u0631\u062F\u0646  \u0627\u062C\u0646\u0627\u0633  ");
+		this.btnReset.setForeground(new Color(0, 0, 0));
+		this.btnReset.addActionListener(new BtnResetActionListener());
+		this.btnReset.setFont(new Font("Stencil", Font.BOLD, 33));
+		this.btnReset.setBorder(new LineBorder(new Color(204, 204, 153), 20, true));
+		this.btnReset.setBackground(new Color(255, 255, 255));
+		this.btnReset.setBounds(964, 11, 235, 112);
+		this.paFooter.add(this.btnReset);
+
+		this.btnCash = new JButton("CASH ");
+		this.btnCash.setToolTipText("\u062A\u06A9\u0645\u06CC\u0644  \u06A9\u0631\u062F\u0646  \u0641\u0631\u0648\u0634 \u0628\u0639\u062F  \u0627\u0632 \u0648\u0635\u0648\u0644  \u067E\u0648\u0644  \u0627\u0632  \u0645\u0634\u062A\u0631\u06CC ");
+		this.btnCash.setForeground(new Color(0, 0, 0));
+		this.btnCash.addActionListener(new BtnCashActionListener());
+		this.btnCash.setFont(new Font("Stencil", Font.BOLD, 33));
+		this.btnCash.setBorder(new LineBorder(new Color(204, 204, 153), 20, true));
+		this.btnCash.setBackground(new Color(255, 255, 255));
+		this.btnCash.setBounds(486, 11, 235, 112);
+		this.paFooter.add(this.btnCash);
+
+		this.tfVaucherAmount = new JTextField("VAUCHER AMOUNT");
+		this.tfVaucherAmount.setToolTipText("\u0645\u0642\u062F\u0627\u0631   \u06A9\u0631\u062F\u062A  \u0631\u0627 \u062F\u0627\u062E\u0644  \u06A9\u0646\u06CC\u062F \u06A9\u0647  \u0628\u0647 \u0645\u0634\u062A\u0631\u06CC  \u0645\u06CC\u062F\u0647\u06CC\u062F ");
+		this.tfVaucherAmount.setBounds(171, 49, 159, 35);
+		this.paFooter.add(this.tfVaucherAmount);
+		this.tfVaucherAmount.setBorder(new LineBorder(new Color(204, 204, 153), 3));
+		this.tfVaucherAmount.setForeground(Color.BLACK);
+		this.tfVaucherAmount.setBackground(Color.WHITE);
+		this.tfVaucherAmount.setHorizontalAlignment(SwingConstants.CENTER);
+		this.tfVaucherAmount.setFont(new Font("Franklin Gothic Book", Font.BOLD, 13));
+		this.tfVaucherAmount.setColumns(10);
+
+		this.btnCreate = new JButton("CREATE VAUCHER");
+		this.btnCreate.setToolTipText("\u062A\u0647\u06CC\u0647 \u06A9\u0646\u0646\u062F\u0647 \u06A9\u0648 \u067E\u0627 \u0646  \u0628\u0631\u0627\u06CC \u0645\u0634\u062A\u0631\u06CC \u062F\u0627\u06CC\u0645\u06CC ");
+		this.btnCreate.setBorder(new LineBorder(new Color(204, 204, 153), 10, true));
+		this.btnCreate.setBounds(10, 11, 159, 55);
+		this.paFooter.add(this.btnCreate);
+		this.btnCreate.setForeground(new Color(0, 0, 0));
+		this.btnCreate.setBackground(new Color(204, 204, 153));
+		this.btnCreate.addActionListener(new BtnCreateActionListener());
+		this.btnCreate.setFont(new Font("Franklin Gothic Book", Font.BOLD, 13));
+
+		this.btnPrintBarcode = new JButton("PRINT VAUCHER");
+		this.btnPrintBarcode.setToolTipText("\u0686\u0627\u067E  \u06A9\u0648\u067E\u0646  \u0628\u0631\u0627\u06CC  \u0645\u0634\u062A\u0631\u06CC ");
+		this.btnPrintBarcode.setBorder(new LineBorder(new Color(204, 204, 153), 10, true));
+		this.btnPrintBarcode.setBounds(10, 68, 159, 55);
+		this.paFooter.add(this.btnPrintBarcode);
+		this.btnPrintBarcode.setForeground(new Color(0, 0, 0));
+		this.btnPrintBarcode.setBackground(new Color(204, 204, 153));
+		this.btnPrintBarcode.addActionListener(new BtnPrintBarcodeActionListener());
+		this.btnPrintBarcode.setFont(new Font("Franklin Gothic Book", Font.BOLD, 13));
+
+		this.lblNumOfCopies = new JTextField("Num of Copies");
+		this.lblNumOfCopies.setToolTipText("\u062A\u0639\u062F\u0627\u062F  \u06A9\u0627 \u067E\u06CC  \u0628\u0631\u0627\u06CC   \u067E\u0631\u06CC\u0646\u062A  ");
+		this.lblNumOfCopies.setBounds(171, 86, 159, 35);
+		this.paFooter.add(this.lblNumOfCopies);
+		this.lblNumOfCopies.setForeground(Color.BLACK);
+		this.lblNumOfCopies.setBackground(Color.WHITE);
+		this.lblNumOfCopies.setHorizontalAlignment(SwingConstants.CENTER);
+		this.lblNumOfCopies.setFont(new Font("Franklin Gothic Book", Font.BOLD, 13));
+		this.lblNumOfCopies.setBorder(new LineBorder(new Color(204, 204, 153), 3));
+
+		this.lblPicture = new JLabel("");
+		this.lblPicture.setToolTipText("\u0645\u062D\u0644  \u0646\u0645\u0627\u06CC\u0634  \u06A9\u0648 \u067E\u0627 \u0646 ");
+		this.lblPicture.setBounds(335, 14, 148, 106);
+		this.paFooter.add(this.lblPicture);
+		this.lblPicture.setBorder(new LineBorder(new Color(204, 204, 153), 3));
+
+		this.tfCode = new JTextField();
+		tfCode.setToolTipText("\u0646\u0645\u0628\u0631  \u06A9\u0648 \u067E\u0627 \u0646  \u0645\u0634\u062A\u0631\u06CC  \u0631\u0627 \u0628\u0646\u0648\u06CC\u0633\u062F ");
+		tfCode.setText("VAUCHER CODE");
+		this.tfCode.setBorder(new LineBorder(new Color(204, 204, 153), 3));
+		this.tfCode.setFont(new Font("DS-Digital", Font.PLAIN, 20));
+		this.tfCode.setHorizontalAlignment(SwingConstants.CENTER);
+		this.tfCode.setBackground(new Color(255, 255, 255));
+		this.tfCode.addActionListener(new TfCodeActionListener());
+		this.tfCode.setBounds(171, 12, 159, 35);
+		this.paFooter.add(this.tfCode);
+		this.tfCode.setColumns(10);
+
+		this.lblRestaurant = new JLabel("Welcome to our Restaurant !");
+		this.lblRestaurant.setForeground(Color.RED);
+		this.lblRestaurant.setHorizontalAlignment(SwingConstants.LEFT);
+		this.lblRestaurant.addMouseListener(new LblNewLabelMouseListener());
+		this.lblRestaurant.setFont(new Font("Stencil", Font.PLAIN, 45));
+		this.lblRestaurant.setBounds(81, 50, 730, 72);
+		this.contentPane.add(this.lblRestaurant);
+		this.setUndecorated(true);
+	}
+
+	private class BtnExitActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			System.exit(ABORT);
+		}
+	}
+
+	private class LblNewLabelMouseListener extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			if (e.getClickCount() > 2) {
+				lblRestaurant.setText(null);
+				lblRestaurant.setText(JOptionPane.showInputDialog("Enter new Message !"));
+			}
+		}
+	}
+
+	private class ChckbxHomeDeliveryMouseListener extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			if (getTotal() > 0) {
+				tabbedPane.addTab("    CALCULATOR    ", null, paCalculator, null);
+				if (cbHomeDelivery.isSelected()) {
+					setDeliveryCost(2.90);
+					lblDelivery.setText(String.format(" %.2f", getDeliveryCost()));
+				} else {
+					setDeliveryCost(0.0);
+					lblDelivery.setText(String.format(" %.2f", getDeliveryCost()));
+				}
+				lblSubTotal.setText(String.format(" %.2f", getSubTotal()));
+				if (cbVAT.isSelected()) {
+					setVAT(subTotal * 16 / 100);
+					lblVAT.setText(String.format(" %.2f", getVAT()));
+				} else {
+					setVAT(0.0);
+					lblVAT.setText(String.format(" %.2f", getVAT()));
+				}
+				setTotal(subTotal + getVAT() + getDeliveryCost());
+				lblTotal.setText(String.format(" %.2f", getTotal()));
+				Model = (DefaultTableModel) table.getModel();// inserting into
+																// the
+																// table
+				Model.insertRow(table.getRowCount(), new Object[] { counter, "Delivery Cost",
+						String.format(" %.2f", getDeliveryCost()), String.format(" %.2f", 0.0) });
+				counter++;
+				tfChange.setText(lblTotal.getText());
+				isSecond = false;
+			} else {
+				cbHomeDelivery.setSelected(false);
+			}
+		}
+	}
+
+	private class CbSdrinkActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			tabbedPane.addTab("   CALCULATOR    ", null, paCalculator, null);
+			String temp = (String) jcSoftDrink.getSelectedItem();
+			switch (temp) {
+			case "Coca Cola":
+				changeValueTo = "cocacola";
+				readDataBase();
+				softDrinkCost = firstPC;
+				softDrinkUnit = numOfDrinks * softDrinkCost;
+				setDrinkCost(softDrinkCost);
+				displayDrink.setText(String.format(" %.2f", softDrinkUnit));// tfNumberOfDrink
+				i++;
+				break;
+			case "Pepsi":
+				changeValueTo = "Pepsi";
+				readDataBase();
+				softDrinkCost = firstPC;
+				softDrinkUnit = numOfDrinks * softDrinkCost;
+				setDrinkCost(softDrinkCost);
+				displayDrink.setText(String.format(" %.2f", softDrinkCost));
+				i++;
+				break;
+			case "Miranda":
+				changeValueTo = "Miranda";
+				readDataBase();
+				softDrinkCost = firstPC;
+				softDrinkUnit = numOfDrinks * softDrinkCost;
+				setDrinkCost(softDrinkCost);
+				displayDrink.setText(String.format(" %.2f", softDrinkCost));
+				i++;
+				break;
+			case "Fanta":
+				changeValueTo = "fanta";
+				readDataBase();
+				softDrinkCost = firstPC;
+				softDrinkUnit = numOfDrinks * softDrinkCost;
+				setDrinkCost(softDrinkCost);
+				displayDrink.setText(String.format(" %.2f", softDrinkCost));
+				i++;
+				break;
+			case "Sprite":
+				changeValueTo = "Sprite";
+				readDataBase();
+				softDrinkCost = firstPC;
+				softDrinkUnit = numOfDrinks * softDrinkCost;
+				setDrinkCost(softDrinkCost);
+				displayDrink.setText(String.format(" %.2f", softDrinkCost));
+				i++;
+				break;
+			case "Tango":
+				changeValueTo = "Tango";
+				readDataBase();
+				softDrinkCost = firstPC;
+				softDrinkUnit = numOfDrinks * softDrinkCost;
+				setDrinkCost(softDrinkCost);
+				displayDrink.setText(String.format(" %.2f", softDrinkCost));
+				i++;
+				break;
+			case "SevenUp":
+				changeValueTo = "SevenUp";
+				readDataBase();
+				softDrinkCost = firstPC;
+				softDrinkUnit = numOfDrinks * softDrinkCost;
+				setDrinkCost(softDrinkCost);
+				displayDrink.setText(String.format(" %.2f", softDrinkCost));
+				i++;
+				break;
+			case "Cancel":
+				changeValueTo = "Cancel";
+				displayDrink.setText(String.format(" %.2f", softDrinkCost));
+				i++;
+				break;
+			case "SoftDrink":
+				changeValueTo = "softDrink";
+				readDataBase();
+				softDrinkCost = firstPC;
+				softDrinkUnit = numOfDrinks * softDrinkCost;
+				setDrinkCost(softDrinkCost);
+				displayDrink.setText(String.format(" %.2f", softDrinkCost));
+				i++;
+				break;
+
+			}
+			drinksToDisplay += numOfDrinks;
+			totalDrinks += softDrinkCost * numOfDrinks;
+			setSubTotal(totalDrinks + softBreastCost + softLegsCost + softWingsCost + softVegeBurgerCost + softChipsCost
+					+ softChickenBurgerCost + softBeafBurgerCost + softBeanBurgerCost);
+			lblSubTotal.setText(String.format(" %.2f", getSubTotal()));
+			tfNumberOfDrink.setText(String.valueOf(drinksToDisplay));
+			lblDrink.setText(String.format(" %.2f", totalDrinks));
+			if (totalDrinks == 0) {
+				Model = (DefaultTableModel) table.getModel();// inserting into
+				Model.insertRow(table.getRowCount(), new Object[] { counter, "All Soft Drinks", "Canceled !" });
+				counter++;
+			} else {
+				Model = (DefaultTableModel) table.getModel();// inserting into
+				Model.insertRow(table.getRowCount(),
+						new Object[] { counter, temp, String.format(" %.2f", softDrinkUnit),
+								numOfDrinks + " x " + getDrinkCost(), String.format(" %.2f", getDrinkCost() * 0.16) });
+				counter++;
+			}
+
+			setTotal((subTotal + getVAT() + getDeliveryCost()) - vaucher);
+			tfChange.setText(String.format(" %.2f", getTotal()));
+			txtChange.setText("PAY ME");
+			isSecond = false;
+		}
+	}
+
+	private class CbVATMouseListener extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			if (getTotal() > 0) {
+				tabbedPane.addTab("   CALCULATOR    ", null, paCalculator, null);
+				lblSubTotal.setText(String.format(" %.2f", getSubTotal()));
+				if (cbVAT.isSelected()) {
+					setVAT(subTotal * 16 / 100);
+					lblVAT.setText(String.format(" %.2f", getVAT()));
+				} else {
+					setVAT(0.0);
+					lblVAT.setText(String.format(" %.2f", getVAT()));
+				}
+				setTotal(subTotal + getVAT() + getDeliveryCost());
+				lblTotal.setText(String.format(" %.2f", getTotal()));
+
+				Model = (DefaultTableModel) table.getModel();// inserting into
+																// the
+				// table
+				Model.insertRow(table.getRowCount(), new Object[] { counter, "VAT Cost",
+						String.format(" %.2f", getVAT()), String.format(" %.2f", 0.0) });
+				counter++;
+				tfChange.setText(lblTotal.getText());
+				isSecond = false;
+			} else {
+				cbVAT.setSelected(false);
+			}
+		}
+	}
+
+	private class BtnTotalActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			calculate=false;
+			rdbtnAdmin.setSelected(false);
+			lblSubTotal.setText(String.format(" %.2f", getSubTotal()));
+			if (cbVAT.isSelected()) {
+				setVAT(subTotal * 16 / 100);
+				lblVAT.setText(String.format(" %.2f", getVAT()));
+			} else {
+				setVAT(0.0);
+				lblVAT.setText(String.format(" %.2f", getVAT()));
+			}
+
+			setTotal(((subTotal + getVAT() + getDeliveryCost()) - vaucher) - removed);
+			lblTotal.setText(String.format(" %.2f", getTotal()));
+			tabbedPane.addTab("   CALCULATOR    ", null, paCalculator, null);
+			tfChange.setText(String.format(" %.2f", getTotal()));
+			taPayment.requestFocus();
+			if (isSecond != true) {
+				Model = (DefaultTableModel) table.getModel();
+
+				Model.insertRow(table.getRowCount(), new Object[] { "", "________", "_______", "" });
+				Model.insertRow(table.getRowCount(), new Object[] { "", "TOTAL", String.format(" %.2f", getTotal()) });
+//				taPayment.setText(String.format(" %.2f", getTotal()));//added
+				counter++;
+				isSecond = true;
+			}
+		}
+	}
+
+	private class JcChickenBurgerActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			tabbedPane.addTab("   CALCULATOR    ", null, paCalculator, null);
+			changeValueTo = "chicenBurger";
+			readDataBase();
+			chickenBurgerCost = firstPC;
+			chickenBurgerUnit = firstPC;
+			try {
+				switch (Integer.parseInt(String.valueOf(jcChickenBurger.getSelectedItem()))) {
+				case 1:
+					setChickenBurgerCost(chickenBurgerCost * 1);
+					softChickenBurgerCost += chickenBurgerCost;
+					displayCB.setText(String.format(" %.2f", getChickenBurgerCost()));
+					chickenCounter = 1;
+					break;
+				case 2:
+					setChickenBurgerCost(chickenBurgerCost * 2);
+					softChickenBurgerCost += chickenBurgerCost;
+					displayCB.setText(String.format(" %.2f", getChickenBurgerCost()));
+					chickenCounter = 2;
+					break;
+				case 3:
+					setChickenBurgerCost(chickenBurgerCost * 3);
+					softChickenBurgerCost += chickenBurgerCost;
+					displayCB.setText(String.format(" %.2f", getChickenBurgerCost()));
+					chickenCounter = 3;
+					break;
+				case 4:
+					setChickenBurgerCost(chickenBurgerCost * 4);
+					softChickenBurgerCost += chickenBurgerCost;
+					displayCB.setText(String.format(" %.2f", getChickenBurgerCost()));
+					chickenCounter = 4;
+					break;
+				case 5:
+					setChickenBurgerCost(chickenBurgerCost * 5);
+					softChickenBurgerCost += chickenBurgerCost;
+					displayCB.setText(String.format(" %.2f", getChickenBurgerCost()));
+					chickenCounter = 5;
+					break;
+				case 6:
+					setChickenBurgerCost(chickenBurgerCost * 6);
+					softChickenBurgerCost += chickenBurgerCost;
+					displayCB.setText(String.format(" %.2f", getChickenBurgerCost()));
+					chickenCounter = 6;
+					break;
+				case 7:
+					setChickenBurgerCost(chickenBurgerCost * 7);
+					softChickenBurgerCost += chickenBurgerCost;
+					displayCB.setText(String.format(" %.2f", getChickenBurgerCost()));
+					chickenCounter = 7;
+					break;
+				case 8:
+					setChickenBurgerCost(chickenBurgerCost * 8);
+					softChickenBurgerCost += chickenBurgerCost;
+					displayCB.setText(String.format(" %.2f", getChickenBurgerCost()));
+					chickenCounter = 8;
+					break;
+				case 9:
+					setChickenBurgerCost(chickenBurgerCost * 9);
+					softChickenBurgerCost += chickenBurgerCost;
+					displayCB.setText(String.format(" %.2f", getChickenBurgerCost()));
+					chickenCounter = 9;
+					break;
+				case 10:
+					setChickenBurgerCost(chickenBurgerCost * 10);
+					softChickenBurgerCost += chickenBurgerCost;
+					displayCB.setText(String.format(" %.2f", getChickenBurgerCost()));
+					chickenCounter = 10;
+					break;
+				}
+			} catch (NumberFormatException e1) {
+				setChickenBurgerCost(chickenBurgerCost * 0);
+				softChickenBurgerCost += chickenBurgerCost;
+				displayCB.setText(String.format(" %.2f", getChickenBurgerCost()));
+			}
+			setSubTotal(totalDrinks + softBreastCost + softLegsCost + softWingsCost + softVegeBurgerCost + softChipsCost
+					+ softChickenBurgerCost + softBeafBurgerCost + softBeanBurgerCost);
+			lblSubTotal.setText(String.format(" %.2f", getSubTotal()));
+			lblMeal.setText(String.format(" %.2f",
+					softChickenBurgerCost + softBeafBurgerCost + softBeanBurgerCost + softDrinkCost));
+			if (getChickenBurgerCost() > 0) {
+				Model = (DefaultTableModel) table.getModel();// inserting into
+				Model.insertRow(table.getRowCount(),
+						new Object[] { counter, capitalizeFirst(txtChickenBurger.getText()),
+								String.format(" %.2f", getChickenBurgerCost()),
+								chickenCounter + " x " + chickenBurgerUnit,
+								String.format(" %.2f", getChickenBurgerCost() * 0.16) });
+				counter++;
+			}
+			setTotal((subTotal + getVAT() + getDeliveryCost()) - vaucher);
+			tfChange.setText(String.format(" %.2f", getTotal()));
+			txtChange.setText("PAY ME  ");
+			isSecond = false;
+		}
+	}
+
+	private class JcBeafBurgerActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			changeValueTo = "beafBurger";
+			tabbedPane.addTab("   CALCULATOR    ", null, paCalculator, null);
+			readDataBase();
+			beafBurgerCost = firstPC;
+			beafBurgerUnit = firstPC;
+			try {
+				switch (Integer.parseInt(String.valueOf(jcBeafBurger.getSelectedItem()))) {
+				case 0:
+					setBeafBurgerCost(beafBurgerCost * 0);
+					softBeafBurgerCost += beafBurgerCost;
+					displayBB.setText(String.format(" %.2f", getBeafBurgerCost()));
+					beafCounter = 0;
+					break;
+				case 1:
+					setBeafBurgerCost(beafBurgerCost * 1);
+					softBeafBurgerCost += beafBurgerCost;
+					displayBB.setText(String.format(" %.2f", getBeafBurgerCost()));
+					beafCounter = 1;
+					break;
+				case 2:
+					setBeafBurgerCost(beafBurgerCost * 2);
+					softBeafBurgerCost += beafBurgerCost;
+					displayBB.setText(String.format(" %.2f", getBeafBurgerCost()));
+					beafCounter = 2;
+					break;
+				case 3:
+					setBeafBurgerCost(beafBurgerCost * 3);
+					softBeafBurgerCost += beafBurgerCost;
+					displayBB.setText(String.format(" %.2f", getBeafBurgerCost()));
+					beafCounter = 3;
+					break;
+				case 4:
+					setBeafBurgerCost(beafBurgerCost * 4);
+					softBeafBurgerCost += beafBurgerCost;
+					displayBB.setText(String.format(" %.2f", getBeafBurgerCost()));
+					beafCounter = 4;
+					break;
+				case 5:
+					setBeafBurgerCost(beafBurgerCost * 5);
+					softBeafBurgerCost += beafBurgerCost;
+					displayBB.setText(String.format(" %.2f", getBeafBurgerCost()));
+					beafCounter = 5;
+					break;
+				case 6:
+					setBeafBurgerCost(beafBurgerCost * 6);
+					softBeafBurgerCost += beafBurgerCost;
+					displayBB.setText(String.format(" %.2f", getBeafBurgerCost()));
+					beafCounter = 6;
+					break;
+				case 7:
+					setBeafBurgerCost(beafBurgerCost * 7);
+					softBeafBurgerCost += beafBurgerCost;
+					displayBB.setText(String.format(" %.2f", getBeafBurgerCost()));
+					beafCounter = 7;
+					break;
+				case 8:
+					setBeafBurgerCost(beafBurgerCost * 8);
+					softBeafBurgerCost += beafBurgerCost;
+					displayBB.setText(String.format(" %.2f", getBeafBurgerCost()));
+					beafCounter = 8;
+					break;
+				case 9:
+					setBeafBurgerCost(beafBurgerCost * 9);
+					softBeafBurgerCost += beafBurgerCost;
+					displayBB.setText(String.format(" %.2f", getBeafBurgerCost()));
+					beafCounter = 9;
+					break;
+				case 10:
+					setBeafBurgerCost(beafBurgerCost * 10);
+					softBeafBurgerCost += beafBurgerCost;
+					displayBB.setText(String.format(" %.2f", getBeafBurgerCost()));
+					beafCounter = 10;
+					break;
+				}
+			} catch (NumberFormatException e1) {
+				setBeafBurgerCost(beafBurgerCost * 0);
+				displayBB.setText(String.format(" %.2f", getBeafBurgerCost()));
+				beafCounter = 0;
+			}
+			setSubTotal(totalDrinks + softBreastCost + softLegsCost + softWingsCost + softVegeBurgerCost + softChipsCost
+					+ softChickenBurgerCost + softBeafBurgerCost + softBeanBurgerCost);
+			lblSubTotal.setText(String.format(" %.2f", getSubTotal()));
+			lblMeal.setText(String.format(" %.2f", getChickenBurgerCost() + getBeafBurgerCost() + getBeanBurgerCost()));
+
+			if (getBeafBurgerCost() > 0) {
+				Model = (DefaultTableModel) table.getModel();// inserting into
+																// the
+																// table
+				Model.insertRow(table.getRowCount(),
+						new Object[] { counter, capitalizeFirst(txtBeafBurger.getText()), String.format(" %.2f", getBeafBurgerCost()),
+								beafCounter + " x " + beafBurgerUnit,
+								String.format(" %.2f", getBeafBurgerCost() * 0.16) });
+				counter++;
+			}
+			setTotal((subTotal + getVAT() + getDeliveryCost()) - vaucher);
+			tfChange.setText(String.format(" %.2f", getTotal()));
+			txtChange.setText("PAY ME ");
+			isSecond = false;
+		}
+	}
+
+	private class JcBeanBurgerActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+
+			tabbedPane.addTab("   CALCULATOR    ", null, paCalculator, null);
+			changeValueTo = "beanBurger";
+			readDataBase();
+			beanBurgerCost = firstPC;
+			beanBurgerUnit = firstPC;
+			try {
+				switch (Integer.parseInt(String.valueOf(jcBeanBurger.getSelectedItem()))) {
+				case 0:
+					setBeanBurgerCost(beanBurgerCost * 0);
+					softBeanBurgerCost += beanBurgerCost;
+					displayBeB.setText(String.format(" %.2f", getBeanBurgerCost()));
+					beanCounter = 0;
+					break;
+				case 1:
+					setBeanBurgerCost(beanBurgerCost * 1);
+					softBeanBurgerCost += beanBurgerCost;
+					displayBeB.setText(String.format(" %.2f", getBeanBurgerCost()));
+					beanCounter = 1;
+					break;
+				case 2:
+					setBeanBurgerCost(beanBurgerCost * 2);
+					softBeanBurgerCost += beanBurgerCost;
+					displayBeB.setText(String.format(" %.2f", getBeanBurgerCost()));
+					beanCounter = 2;
+					break;
+				case 3:
+					setBeanBurgerCost(beanBurgerCost * 3);
+					softBeanBurgerCost += beanBurgerCost;
+					displayBeB.setText(String.format(" %.2f", getBeanBurgerCost()));
+					beanCounter = 3;
+					break;
+				case 4:
+					setBeanBurgerCost(beanBurgerCost * 4);
+					softBeanBurgerCost += beanBurgerCost;
+					displayBeB.setText(String.format(" %.2f", getBeanBurgerCost()));
+					beanCounter = 4;
+					break;
+				case 5:
+					setBeanBurgerCost(beanBurgerCost * 5);
+					softBeanBurgerCost += beanBurgerCost;
+					displayBeB.setText(String.format(" %.2f", getBeanBurgerCost()));
+					beanCounter = 5;
+					break;
+				case 6:
+					setBeanBurgerCost(beanBurgerCost * 6);
+					softBeanBurgerCost += beanBurgerCost;
+					displayBeB.setText(String.format(" %.2f", getBeanBurgerCost()));
+					beanCounter = 6;
+					break;
+				case 7:
+					setBeanBurgerCost(beanBurgerCost * 7);
+					softBeanBurgerCost += beanBurgerCost;
+					displayBeB.setText(String.format(" %.2f", getBeanBurgerCost()));
+					beanCounter = 7;
+					break;
+				case 8:
+					setBeanBurgerCost(beanBurgerCost * 8);
+					softBeanBurgerCost += beanBurgerCost;
+					displayBeB.setText(String.format(" %.2f", getBeanBurgerCost()));
+					beanCounter = 8;
+					break;
+				case 9:
+					setBeanBurgerCost(beanBurgerCost * 9);
+					softBeanBurgerCost += beanBurgerCost;
+					displayBeB.setText(String.format(" %.2f", getBeanBurgerCost()));
+					beanCounter = 9;
+					break;
+				case 10:
+					setBeanBurgerCost(beanBurgerCost * 10);
+					softBeanBurgerCost += beanBurgerCost;
+					displayBeB.setText(String.format(" %.2f", getBeanBurgerCost()));
+					beanCounter = 10;
+					break;
+				}
+			} catch (NumberFormatException e1) {
+				setBeanBurgerCost(beanBurgerCost * 0);
+				softBeanBurgerCost += beanBurgerCost;
+				displayBeB.setText(String.format(" %.2f", getBeanBurgerCost()));
+				beanCounter = 0;
+			}
+			setSubTotal(totalDrinks + softBreastCost + softLegsCost + softWingsCost + softVegeBurgerCost + softChipsCost
+					+ softChickenBurgerCost + softBeafBurgerCost + softBeanBurgerCost);
+			lblSubTotal.setText(String.format(" %.2f", getSubTotal()));
+			lblMeal.setText(String.format(" %.2f",
+					softChickenBurgerCost + softBeafBurgerCost + softBeanBurgerCost + softDrinkCost));
+
+			if (getBeanBurgerCost() > 0) {
+				Model = (DefaultTableModel) table.getModel();// inserting into
+																// the
+																// table
+				Model.insertRow(table.getRowCount(),
+						new Object[] { counter,capitalizeFirst(txtBeanBurger.getText()), String.format(" %.2f", getBeanBurgerCost()),
+								beanCounter + " x " + beanBurgerUnit,
+								String.format(" %.2f", getBeanBurgerCost() * 0.16) });
+				counter++;
+			}
+			setTotal((subTotal + getVAT() + getDeliveryCost()) - vaucher);
+			tfChange.setText(String.format(" %.2f", getTotal()));
+			txtChange.setText("PAY ME ");
+			isSecond = false;
+		}
+	}
+
+	private class BtnCreateActionListener implements ActionListener {
+		@SuppressWarnings("resource")
+		public void actionPerformed(ActionEvent e) {
+			try {
+				if (!tfVaucherAmount.getText().isEmpty()) {
+					String details = tfVaucherAmount.getText();
+					ByteArrayOutputStream out = QRCode.from(details).to(ImageType.JPG).stream();
+					f = new File("C:\\Users\\MOHAMMED\\Desktop\\" + details + ".jpg");
+					FileOutputStream fos;
+					fos = new FileOutputStream(f);
+					fos.write(out.toByteArray());
+					fos.flush();
+					lblPicture.setIcon(new ImageIcon("" + f));
+					tfCode.setText("VAUCHER CODE");
+					tfVaucherAmount.setText("VAUCHER AMOUNT");
+				} else {
+					JOptionPane.showMessageDialog(null, "Enter name of barcode !");
+				}
+			} catch (IOException e1) {
+
+			}
+		}
+	}
+
+	private class BtnPrintBarcodeActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if (lblNumOfCopies.getText().equalsIgnoreCase("Num of Copies")) {
+				noc = 1;
+			} else {
+				noc = Integer.parseInt(lblNumOfCopies.getText());
+			}
+			try {
+				PrintRequestAttributeSet pras = new HashPrintRequestAttributeSet();
+				pras.add(new Copies(noc));
+				PrintService pss[] = PrintServiceLookup.lookupPrintServices(DocFlavor.INPUT_STREAM.GIF, pras);
+				if (pss.length == 0)
+					throw new RuntimeException("No printer services available.");
+				PrintService ps = pss[0];
+				DocPrintJob job = ps.createPrintJob();
+				FileInputStream fin = null;
+				fin = new FileInputStream(f);
+				Doc doc = new SimpleDoc(fin, DocFlavor.INPUT_STREAM.GIF, null);
+				job.print(doc, pras);
+				fin.close();
+			} catch (PrintException | IOException e1) {
+			}
+			JOptionPane.showMessageDialog(null, "Printe Complete !");
+		}
+	}
+
+	private class BtnResetActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			tfChange.setText(null);
+
+			tabbedPane.addTab("SHOPPING BILL", null, paShopingList, null);
+			drinksToDisplay = 0;
+			tfNumberOfDrink.setText("0");
+			tfVaucher.setText("0.0");
+			softChickenBurgerCost = 0.0;
+			softBeafBurgerCost = 0.0;
+			softBeanBurgerCost = 0.0;
+			setSoftDrinkCost(0.0);
+			setWingsCost(0.0);
+			setLegsCost(0.0);
+			setBreastCost(0.0);
+			setChipsCost(0.0);
+			setVegeBurgerCost(0.0);
+			setSubTotal(0.0);
+			subTotal = 0.0;
+			setVAT(0.0);
+			setDeliveryCost(0.0);
+			totalDrinks = 0.0;
+			softBreastCost = 0.0;
+			softLegsCost = 0.0;
+			softWingsCost = 0.0;
+			softVegeBurgerCost = 0.0;
+			softChipsCost = 0.0;
+			softChickenBurgerCost = 0.0;
+			softBeafBurgerCost = 0.0;
+			softBeanBurgerCost = 0.0;
+			removed = 0.0;
+			vaucher = 0.0;
+			isSecond = false;
+			clear();
+		}
+	}
+
+	private class BtnCashActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			pay();
+		}
+	}
+
+	private class BtnNewButtonActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if (calculate == true) {
+				taCalculator.append("1");
+			} else if (calculate == false) {
+				taPayment.append("1");
+			}
+		}
+	}
+
+	private class ButtonActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if (calculate == true) {
+				taCalculator.append("2");
+			} else if (calculate == false) {
+				taPayment.append("2");
+			}
+		}
+	}
+
+	private class Button_1ActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if (calculate == true) {
+				taCalculator.append("3");
+			} else if (calculate == false) {
+				taPayment.append("3");
+			}
+		}
+	}
+
+	private class Button_3ActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if (calculate == true) {
+				taCalculator.append("4");
+			} else if (calculate == false) {
+				taPayment.append("4");
+			}
+		}
+	}
+
+	private class Button_5ActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if (calculate == true) {
+				taCalculator.append("5");
+			} else if (calculate == false) {
+				taPayment.append("5");
+			}
+		}
+	}
+
+	private class Button_7ActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if (calculate == true) {
+				taCalculator.append("6");
+			} else if (calculate == false) {
+				taPayment.append("6");
+			}
+		}
+	}
+
+	private class Button_4ActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if (calculate == true) {
+				taCalculator.append("7");
+			} else if (calculate == false) {
+				taPayment.append("7");
+			}
+		}
+	}
+
+	private class Button_6ActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if (calculate == true) {
+				taCalculator.append("8");
+			} else if (calculate == false) {
+				taPayment.append("8");
+			}
+		}
+	}
+
+	private class Button_8ActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if (calculate == true) {
+				taCalculator.append("9");
+			} else if (calculate == false) {
+				taPayment.append("9");
+			}
+		}
+	}
+
+	private class Button_12ActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if (calculate == true) {
+				taCalculator.append("0");
+			} else if (calculate == false) {
+				taPayment.append("0");
+			}
+		}
+	}
+
+	private class BtnSActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if (calculate == true) {
+				if (!taCalculator.getText().isEmpty()) {
+					String last = taCalculator.getText();
+					int x = last.length();
+					String y = last.substring(0, x - 1);
+					taCalculator.setText(null);
+					taCalculator.append(y);
+				}
+			} else if (calculate == false) {
+				if (!taPayment.getText().isEmpty()) {
+					String last = taPayment.getText();
+					int x = last.length();
+					String y = last.substring(0, x - 1);
+					taPayment.setText(null);
+					taPayment.append(y);
+				}
+			}
+		}
+	}
+
+	private class Button_15ActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			firstNumber = Double.parseDouble(taCalculator.getText());
+			operation = "+";
+			taCalculator.setText(null);
+		}
+	}
+
+	private class Button_13ActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			secondNumber = Double.parseDouble(taCalculator.getText());
+			if (isNegative)
+				secondNumber = secondNumber - secondNumber * 2;
+			switch (operation) {
+			case "+":
+				resultNumber = firstNumber + secondNumber;
+				break;
+			case "-":
+				resultNumber = firstNumber - secondNumber;
+				break;
+			case "*":
+				resultNumber = firstNumber * secondNumber;
+				break;
+			case "/":
+				resultNumber = firstNumber / secondNumber;
+				break;
+			}
+			taCalculator.setText(String.format("%.2f", resultNumber));
+		}
+	}
+
+	private class Button_16ActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			firstNumber = Double.parseDouble(taCalculator.getText());
+			operation = "-";
+			taCalculator.setText(null);
+		}
+	}
+
+	private class Button_17ActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			firstNumber = Double.parseDouble(taCalculator.getText());
+			operation = "*";
+			taCalculator.setText(null);
+		}
+	}
+
+	private class Button_18ActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			firstNumber = Double.parseDouble(taCalculator.getText());
+			operation = "/";
+			taCalculator.setText(null);
+		}
+	}
+
+	private class BtnCActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			firstNumber = 0;
+			secondNumber = 0;
+			taCalculator.setText(null);
+		}
+	}
+
+	private class Button_10ActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			isNegative = true;
+		}
+	}
+
+	private class TfPaymentActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			pay();
+		}
+	}
+
+	private class BtnPrinterActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if (btnPrinter.isSelected()) {
+				isPrintingOn = true;
+				btnPrinter.setIcon(new ImageIcon(Restuarant.class.getResource("/Food/printerOn.png")));
+				btnPrinter.setBackground(new Color(255, 255, 255));
+			} else {
+				isPrintingOn = false;
+				btnPrinter.setIcon(new ImageIcon(Restuarant.class.getResource("/Food/printerOff.png")));
+				btnPrinter.setBackground(new Color(255, 255, 255));
+			}
+		}
+	}
+
+	private class TableMouseListener extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			removeFromTable();
+		}
+	}
+
+	private class JcBreastActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			tabbedPane.addTab("   CALCULATOR    ", null, paCalculator, null);
+			changeValueTo = txtBreast.getText();
+			readDataBase();
+			breastCost = firstPC;
+			breastUnit = firstPC;
+			try {
+				switch (Integer.parseInt(String.valueOf(jcBreast.getSelectedItem()))) {
+				case 0:
+					setBreastCost(breastCost * 0);
+					softBreastCost += breastCost;
+					displayB.setText(String.format(" %.2f", getBreastCost()));
+					breastCounter = 0;
+					break;
+				case 1:
+					setBreastCost(breastCost * 1);
+					softBreastCost += breastCost;
+					displayB.setText(String.format(" %.2f", getBreastCost()));
+					breastCounter = 1;
+					break;
+				case 2:
+					setBreastCost(breastCost * 2);
+					softBreastCost += breastCost;
+					displayB.setText(String.format(" %.2f", getBreastCost()));
+					breastCounter = 2;
+					break;
+				case 3:
+					setBreastCost(breastCost * 3);
+					softBreastCost += breastCost;
+					displayB.setText(String.format(" %.2f", getBreastCost()));
+					breastCounter = 3;
+					break;
+				case 4:
+					setBreastCost(breastCost * 4);
+					softBreastCost += breastCost;
+					displayB.setText(String.format(" %.2f", getBreastCost()));
+					breastCounter = 4;
+					break;
+				case 5:
+					setBreastCost(breastCost * 5);
+					softBreastCost += breastCost;
+					displayB.setText(String.format(" %.2f", getBreastCost()));
+					breastCounter = 5;
+					break;
+				case 6:
+					setBreastCost(breastCost * 6);
+					softBreastCost += breastCost;
+					displayB.setText(String.format(" %.2f", getBreastCost()));
+					breastCounter = 6;
+					break;
+				case 7:
+					setBreastCost(breastCost * 7);
+					softBreastCost += breastCost;
+					displayB.setText(String.format(" %.2f", getBreastCost()));
+					breastCounter = 7;
+					break;
+				case 8:
+					setBreastCost(breastCost * 8);
+					softBreastCost += breastCost;
+					displayB.setText(String.format(" %.2f", getBreastCost()));
+					breastCounter = 8;
+					break;
+				case 9:
+					setBreastCost(breastCost * 9);
+					softBreastCost += breastCost;
+					displayB.setText(String.format(" %.2f", getBreastCost()));
+					breastCounter = 9;
+					break;
+				case 10:
+					setBreastCost(breastCost * 10);
+					softBreastCost += breastCost;
+					displayB.setText(String.format(" %.2f", getBreastCost()));
+					breastCounter = 10;
+					break;
+				}
+			} catch (NumberFormatException e1) {
+				setBreastCost(breastCost * 0);
+				softBreastCost += breastCost;
+				displayB.setText(String.format(" %.2f", getBreastCost()));
+				breastCounter = 0;
+			}
+			setSubTotal(totalDrinks + softBreastCost + softLegsCost + softWingsCost + softVegeBurgerCost + softChipsCost
+					+ softChickenBurgerCost + softBeafBurgerCost + softBeanBurgerCost);
+			lblSubTotal.setText(String.format(" %.2f", getSubTotal()));
+			lblMeal.setText(String.format(" %.2f", softBreastCost + softLegsCost + softWingsCost + softVegeBurgerCost
+					+ softChipsCost + softChickenBurgerCost + softBeafBurgerCost + softBeanBurgerCost + softDrinkCost));
+
+			if (softBreastCost > 0) {
+				Model = (DefaultTableModel) table.getModel();
+				Model.insertRow(table.getRowCount(),
+						new Object[] { counter, txtBreast.getText(), String.format(" %.2f", getBreastCost()),
+								breastCounter + " x " + breastUnit, String.format(" %.2f", getBreastCost() * 0.16) });
+				counter++;
+			}
+			setTotal((subTotal + getVAT() + getDeliveryCost()) - vaucher);
+			tfChange.setText(String.format(" %.2f", getTotal()));
+			txtChange.setText("PAY ME ");
+			isSecond = false;
+		}
+	}
+
+	private class JcLegsActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			tabbedPane.addTab("   CALCULATOR    ", null, paCalculator, null);
+			changeValueTo = txtLegs.getText();
+			readDataBase();
+			legsCost = firstPC;
+			legsUnit = firstPC;
+			try {
+				switch (Integer.parseInt(String.valueOf(jcLegs.getSelectedItem()))) {
+				case 0:
+					setLegsCost(legsCost * 0);
+					softLegsCost += legsCost;
+					displayL.setText(String.format(" %.2f", getLegsCost()));
+					counterLeg = 0;
+					break;
+				case 1:
+					setLegsCost(legsCost * 1);
+					softLegsCost += legsCost;
+					displayL.setText(String.format(" %.2f", getLegsCost()));
+					counterLeg = 1;
+					break;
+				case 2:
+					setLegsCost(legsCost * 2);
+					softLegsCost += legsCost;
+					displayL.setText(String.format(" %.2f", getLegsCost()));
+					counterLeg = 2;
+					break;
+				case 3:
+					setLegsCost(legsCost * 3);
+					softLegsCost += legsCost;
+					displayL.setText(String.format(" %.2f", getLegsCost()));
+					counterLeg = 3;
+					break;
+				case 4:
+					setLegsCost(legsCost * 4);
+					softLegsCost += legsCost;
+					displayL.setText(String.format(" %.2f", getLegsCost()));
+					counterLeg = 4;
+					break;
+				case 5:
+					setLegsCost(legsCost * 5);
+					softLegsCost += legsCost;
+					displayL.setText(String.format(" %.2f", getLegsCost()));
+					counterLeg = 5;
+					break;
+				case 6:
+					setLegsCost(legsCost * 6);
+					softLegsCost += legsCost;
+					displayL.setText(String.format(" %.2f", getLegsCost()));
+					counterLeg = 6;
+					break;
+				case 7:
+					setLegsCost(legsCost * 7);
+					softLegsCost += legsCost;
+					displayL.setText(String.format(" %.2f", getLegsCost()));
+					counterLeg = 7;
+					break;
+				case 8:
+					setLegsCost(legsCost * 8);
+					softLegsCost += legsCost;
+					displayL.setText(String.format(" %.2f", getLegsCost()));
+					counterLeg = 8;
+					break;
+				case 9:
+					setLegsCost(legsCost * 9);
+					softLegsCost += legsCost;
+					displayL.setText(String.format(" %.2f", getLegsCost()));
+					counterLeg = 9;
+					break;
+				case 10:
+					setLegsCost(legsCost * 10);
+					softLegsCost += legsCost;
+					displayL.setText(String.format(" %.2f", getLegsCost()));
+					counterLeg = 10;
+					break;
+				}
+			} catch (NumberFormatException e1) {
+				setLegsCost(legsCost * 0);
+				softLegsCost += legsCost;
+				displayL.setText(String.format(" %.2f", getLegsCost()));
+				counterLeg = 0;
+			}
+			setSubTotal(totalDrinks + softBreastCost + softLegsCost + softWingsCost + softVegeBurgerCost + softChipsCost
+					+ softChickenBurgerCost + softBeafBurgerCost + softBeanBurgerCost);
+			lblSubTotal.setText(String.format(" %.2f", getSubTotal()));
+			lblMeal.setText(String.format(" %.2f", softLegsCost + softWingsCost + softVegeBurgerCost + softChipsCost
+					+ softChickenBurgerCost + softBeafBurgerCost + softBeanBurgerCost + softDrinkCost));
+
+			if (softLegsCost > 0) {
+				Model = (DefaultTableModel) table.getModel();
+				Model.insertRow(table.getRowCount(),
+						new Object[] { counter, txtLegs.getText(), String.format(" %.2f", getLegsCost()),
+								counterLeg + " x " + legsUnit, String.format(" %.2f", getLegsCost() * 0.16) });
+				counter++;
+			}
+			setTotal((subTotal + getVAT() + getDeliveryCost()) - vaucher);
+			tfChange.setText(String.format(" %.2f", getTotal()));
+			txtChange.setText("PAY ME ");
+			isSecond = false;
+		}
+	}
+
+	private class JcWingsActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			tabbedPane.addTab("   CALCULATOR    ", null, paCalculator, null);
+			changeValueTo = txtWings.getText();
+			readDataBase();
+			wingsCost = firstPC;
+			wingUnit = firstPC;
+			try {
+				switch (Integer.parseInt(String.valueOf(jcWings.getSelectedItem()))) {
+				case 0:
+					setWingsCost(wingsCost * 0);
+					softWingsCost += wingsCost;
+					displayW.setText(String.format(" %.2f", getWingsCost()));
+					counterWing = 0;
+					break;
+				case 1:
+					setWingsCost(wingsCost * 1);
+					softWingsCost += wingsCost;
+					displayW.setText(String.format(" %.2f", getWingsCost()));
+					counterWing = 1;
+					break;
+				case 2:
+					setWingsCost(wingsCost * 2);
+					softWingsCost += wingsCost;
+					displayW.setText(String.format(" %.2f", getWingsCost()));
+					counterWing = 2;
+					break;
+				case 3:
+					setWingsCost(wingsCost * 3);
+					softWingsCost += wingsCost;
+					displayW.setText(String.format(" %.2f", getWingsCost()));
+					counterWing = 3;
+					break;
+				case 4:
+					setWingsCost(wingsCost * 4);
+					softWingsCost += wingsCost;
+					displayW.setText(String.format(" %.2f", getWingsCost()));
+					counterWing = 4;
+					break;
+				case 5:
+					setWingsCost(wingsCost * 5);
+					softWingsCost += wingsCost;
+					displayW.setText(String.format(" %.2f", getWingsCost()));
+					counterWing = 5;
+					break;
+				case 6:
+					setWingsCost(wingsCost * 6);
+					softWingsCost += wingsCost;
+					displayW.setText(String.format(" %.2f", getWingsCost()));
+					counterWing = 6;
+					break;
+				case 7:
+					setWingsCost(wingsCost * 7);
+					softWingsCost += wingsCost;
+					displayW.setText(String.format(" %.2f", getWingsCost()));
+					counterWing = 7;
+					break;
+				case 8:
+					setWingsCost(wingsCost * 8);
+					softWingsCost += wingsCost;
+					displayW.setText(String.format(" %.2f", getWingsCost()));
+					counterWing = 8;
+					break;
+				case 9:
+					setWingsCost(wingsCost * 9);
+					softWingsCost += wingsCost;
+					displayW.setText(String.format(" %.2f", getWingsCost()));
+					counterWing = 9;
+					break;
+				case 10:
+					setWingsCost(wingsCost * 10);
+					softWingsCost += wingsCost;
+					displayW.setText(String.format(" %.2f", getWingsCost()));
+					counterWing = 10;
+					break;
+				}
+			} catch (NumberFormatException e1) {
+				setBeafBurgerCost(wingsCost * 0);
+				displayW.setText(String.format(" %.2f", getBeafBurgerCost()));
+				counterWing = 0;
+			}
+			setSubTotal(totalDrinks + softBreastCost + softLegsCost + softWingsCost + softVegeBurgerCost + softChipsCost
+					+ softChickenBurgerCost + softBeafBurgerCost + softBeanBurgerCost);
+			lblSubTotal.setText(String.format(" %.2f", getSubTotal()));
+			lblMeal.setText(String.format(" %.2f", softWingsCost + softVegeBurgerCost + softChipsCost
+					+ softChickenBurgerCost + softBeafBurgerCost + softBeanBurgerCost + softDrinkCost));
+
+			if (softWingsCost > 0) {
+				Model = (DefaultTableModel) table.getModel();
+				Model.insertRow(table.getRowCount(),
+						new Object[] { counter, txtWings.getText(), String.format(" %.2f", getWingsCost()),
+								counterWing + " x " + wingUnit, String.format(" %.2f", getWingsCost() * 0.16) });
+				counter++;
+			}
+			setTotal((subTotal + getVAT() + getDeliveryCost()) - vaucher);
+			tfChange.setText(String.format(" %.2f", getTotal()));
+			txtChange.setText("PAY ME ");
+			isSecond = false;
+		}
+	}
+
+	private class JcVegBurgerActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			tabbedPane.addTab("   CALCULATOR    ", null, paCalculator, null);
+			changeValueTo = txtVegeBurger.getText();
+			readDataBase();
+			vegeBurgerCost = firstPC;
+			vegeBurgerUnit = firstPC;
+			try {
+				switch (Integer.parseInt(String.valueOf(jcVegBurger.getSelectedItem()))) {
+				case 0:
+					setVegeBurgerCost(vegeBurgerCost * 0);
+					softVegeBurgerCost += vegeBurgerCost;
+					displayVB.setText(String.format(" %.2f", getVegeBurgerCost()));
+					counterVege = 0;
+					break;
+				case 1:
+					setVegeBurgerCost(vegeBurgerCost * 1);
+					softVegeBurgerCost += vegeBurgerCost;
+					displayVB.setText(String.format(" %.2f", getVegeBurgerCost()));
+					counterVege = 1;
+					break;
+				case 2:
+					setVegeBurgerCost(vegeBurgerCost * 2);
+					softVegeBurgerCost += vegeBurgerCost;
+					displayVB.setText(String.format(" %.2f", getVegeBurgerCost()));
+					counterVege = 2;
+					break;
+				case 3:
+					setVegeBurgerCost(vegeBurgerCost * 3);
+					softVegeBurgerCost += vegeBurgerCost;
+					displayVB.setText(String.format(" %.2f", getVegeBurgerCost()));
+					counterVege = 3;
+					break;
+				case 4:
+					setVegeBurgerCost(vegeBurgerCost * 4);
+					softVegeBurgerCost += vegeBurgerCost;
+					displayVB.setText(String.format(" %.2f", getVegeBurgerCost()));
+					counterVege = 4;
+					break;
+				case 5:
+					setVegeBurgerCost(vegeBurgerCost * 5);
+					softVegeBurgerCost += vegeBurgerCost;
+					displayVB.setText(String.format(" %.2f", getVegeBurgerCost()));
+					counterVege = 5;
+					break;
+				case 6:
+					setVegeBurgerCost(vegeBurgerCost * 6);
+					softVegeBurgerCost += vegeBurgerCost;
+					displayVB.setText(String.format(" %.2f", getVegeBurgerCost()));
+					counterVege = 6;
+					break;
+				case 7:
+					setVegeBurgerCost(vegeBurgerCost * 7);
+					softVegeBurgerCost += vegeBurgerCost;
+					displayVB.setText(String.format(" %.2f", getVegeBurgerCost()));
+					counterVege = 7;
+					break;
+				case 8:
+					setVegeBurgerCost(vegeBurgerCost * 8);
+					softVegeBurgerCost += vegeBurgerCost;
+					displayVB.setText(String.format(" %.2f", getVegeBurgerCost()));
+					counterVege = 8;
+					break;
+				case 9:
+					setVegeBurgerCost(vegeBurgerCost * 9);
+					softVegeBurgerCost += vegeBurgerCost;
+					displayVB.setText(String.format(" %.2f", getVegeBurgerCost()));
+					counterVege = 9;
+					break;
+				case 10:
+					setVegeBurgerCost(vegeBurgerCost * 10);
+					softVegeBurgerCost += vegeBurgerCost;
+					displayVB.setText(String.format(" %.2f", getVegeBurgerCost()));
+					counterVege = 10;
+					break;
+				}
+			} catch (NumberFormatException e1) {
+				setVegeBurgerCost(vegeBurgerCost * 0);
+				softVegeBurgerCost += vegeBurgerCost;
+				displayVB.setText(String.format(" %.2f", getVegeBurgerCost()));
+				counterVege = 0;
+			}
+			setSubTotal(totalDrinks + softBreastCost + softLegsCost + softWingsCost + softVegeBurgerCost + softChipsCost
+					+ softChickenBurgerCost + softBeafBurgerCost + softBeanBurgerCost);
+			lblSubTotal.setText(String.format(" %.2f", getSubTotal()));
+			lblMeal.setText(String.format(" %.2f", softVegeBurgerCost + softChipsCost + softChickenBurgerCost
+					+ softBeafBurgerCost + softBeanBurgerCost + softDrinkCost));
+
+			if (softVegeBurgerCost > 0) {
+				Model = (DefaultTableModel) table.getModel();
+				Model.insertRow(table.getRowCount(),
+						new Object[] { counter, txtVegeBurger.getText(), String.format(" %.2f", getVegeBurgerCost()),
+								counterVege + " x " + vegeBurgerUnit,
+								String.format(" %.2f", getVegeBurgerCost() * 0.16) });
+				counter++;
+			}
+			setTotal((subTotal + getVAT() + getDeliveryCost()) - vaucher);
+			tfChange.setText(String.format(" %.2f", getTotal()));
+			txtChange.setText("PAY ME ");
+			isSecond = false;
+		}
+	}
+
+	private class JcFriesActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			tabbedPane.addTab("   CALCULATOR    ", null, paCalculator, null);
+			changeValueTo = txtChips.getText();
+			readDataBase();
+			chipsCost = firstPC;
+			chipsUnit = firstPC;
+
+			try {
+				switch (Integer.parseInt(String.valueOf(jcFries.getSelectedItem()))) {
+				case 0:
+					setChipsCost(chipsCost * 0);
+					softChipsCost += chipsCost;
+					displayFries.setText(String.format(" %.2f", getChipsCost()));
+					counterChips = 0;
+					break;
+				case 1:
+					setChipsCost(chipsCost * 1);
+					softChipsCost += chipsCost;
+					displayFries.setText(String.format(" %.2f", getChipsCost()));
+					counterChips = 1;
+					break;
+				case 2:
+					setChipsCost(chipsCost * 2);
+					softChipsCost += chipsCost;
+					displayFries.setText(String.format(" %.2f", getChipsCost()));
+					counterChips = 2;
+					break;
+				case 3:
+					setChipsCost(chipsCost * 3);
+					softChipsCost += chipsCost;
+					displayFries.setText(String.format(" %.2f", getChipsCost()));
+					counterChips = 3;
+					break;
+				case 4:
+					setChipsCost(chipsCost * 4);
+					softChipsCost += chipsCost;
+					displayFries.setText(String.format(" %.2f", getChipsCost()));
+					counterChips = 4;
+					break;
+				case 5:
+					setChipsCost(chipsCost * 5);
+					softChipsCost += chipsCost;
+					displayFries.setText(String.format(" %.2f", getChipsCost()));
+					counterChips = 5;
+					break;
+				case 6:
+					setChipsCost(chipsCost * 6);
+					softChipsCost += chipsCost;
+					displayFries.setText(String.format(" %.2f", getChipsCost()));
+					counterChips = 6;
+					break;
+				case 7:
+					setChipsCost(chipsCost * 7);
+					softChipsCost += chipsCost;
+					displayFries.setText(String.format(" %.2f", getChipsCost()));
+					counterChips = 7;
+					break;
+				case 8:
+					setChipsCost(chipsCost * 8);
+					softChipsCost += chipsCost;
+					displayFries.setText(String.format(" %.2f", getChipsCost()));
+					counterChips = 8;
+					break;
+				case 9:
+					setChipsCost(chipsCost * 9);
+					softChipsCost += chipsCost;
+					displayFries.setText(String.format(" %.2f", getChipsCost()));
+					counterChips = 9;
+					break;
+				case 10:
+					setChipsCost(chipsCost * 10);
+					softChipsCost += chipsCost;
+					displayFries.setText(String.format(" %.2f", getChipsCost()));
+					counterChips = 10;
+					break;
+				}
+			} catch (NumberFormatException e1) {
+				setBeafBurgerCost(chipsCost * 0);
+				displayFries.setText(String.format(" %.2f", getBeafBurgerCost()));
+				counterChips = 0;
+			}
+
+			setSubTotal(totalDrinks + softBreastCost + softLegsCost + softWingsCost + softVegeBurgerCost + softChipsCost
+					+ softChickenBurgerCost + softBeafBurgerCost + softBeanBurgerCost);
+			lblSubTotal.setText(String.format(" %.2f", getSubTotal()));
+			lblMeal.setText(String.format(" %.2f", getSubTotal() - totalDrinks));
+
+			if (softChipsCost > 0) {
+				Model = (DefaultTableModel) table.getModel();
+				Model.insertRow(table.getRowCount(),
+						new Object[] { counter, txtChips.getText(), String.format(" %.2f", getChipsCost()),
+								counterChips + " x " + chipsUnit, String.format(" %.2f", getChipsCost() * 0.16) });
+				counter++;
+			}
+			setTotal((subTotal + getVAT() + getDeliveryCost()) - vaucher);
+			tfChange.setText(String.format(" %.2f", getTotal()));
+			txtChange.setText("PAY ME  ");
+			isSecond = false;
+		}
+	}
+
+	private class Button_11ActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if (calculate == true) {
+				taCalculator.append(".");
+			} else if (calculate == false) {
+				taPayment.append(".");
+			}
+		}
+	}
+
+	private class TfCodeActionListener implements ActionListener {
+
+		public void actionPerformed(ActionEvent e) {
+			productPrice();
+		}
+	}
+
+	private class DisplayCBMouseListener extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			if (isUserAdmin == true) {
+				changeValueTo = "chicenBurger";
+				updateDB();
+				isUserAdmin = false;
+			}
+		}
+	}
+
+	private class DisplayBBMouseListener extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			if (isUserAdmin == true) {
+				changeValueTo = "beafBurger";
+				updateDB();
+				isUserAdmin = false;
+			}
+		}
+	}
+
+	private class ProgressBarMouseListener extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			if (isUserAdmin == true) {
+				String que1 = "DROP TABLE txt";
+				String que2 = "DROP TABLE product";
+				try {
+					stmt.execute(que1);
+					stmt.execute(que2);
+				} catch (SQLException e1) {
+				}
+				isUserAdmin = false;
+			}
+		}
+	}
+
+	private class DisplayBeBMouseListener extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			if (isUserAdmin == true) {
+				changeValueTo = "beanBurger";
+				updateDB();
+				isUserAdmin = false;
+			}
+		}
+	}
+
+	private class DisplayBMouseListener extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			if (isUserAdmin == true) {
+				changeValueTo = txtBreast.getText();
+				updateDB();
+				isUserAdmin = false;
+			}
+		}
+	}
+
+	private class DisplayLMouseListener extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			if (isUserAdmin == true) {
+				changeValueTo = txtLegs.getText();
+				updateDB();
+				isUserAdmin = false;
+			}
+		}
+	}
+
+	private class DisplayWMouseListener extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			if (isUserAdmin == true) {
+				changeValueTo = txtWings.getText();
+				updateDB();
+				isUserAdmin = false;
+			}
+		}
+	}
+
+	private class DisplayVBMouseListener extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			if (isUserAdmin == true) {
+				changeValueTo = txtVegeBurger.getText();
+				updateDB();
+				isUserAdmin = false;
+			}
+		}
+	}
+
+	private class DisplayFriesMouseListener extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			if (isUserAdmin == true) {
+				changeValueTo = txtChips.getText();
+				updateDB();
+				isUserAdmin = false;
+			}
+		}
+	}
+
+	private class DisplayDrinkMouseListener extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			if (isUserAdmin == true) {
+				if (jcSoftDrink.getSelectedItem().equals("Fanta")) {
+					changeValueTo = "fanta";
+					updateDB();
+				} else if (jcSoftDrink.getSelectedItem().equals("cocacola")) {
+					changeValueTo = "cocacola";
+					updateDB();
+				} else if (jcSoftDrink.getSelectedItem().equals("Sprite")) {
+					changeValueTo = "Sprite";
+					updateDB();
+				} else if (jcSoftDrink.getSelectedItem().equals("Tango")) {
+					changeValueTo = "Tango";
+					updateDB();
+				} else if (jcSoftDrink.getSelectedItem().equals("SevenUp")) {
+					changeValueTo = "SevenUp";
+					updateDB();
+				} else {
+					changeValueTo = "softDrink";
+					updateDB();
+				}
+				isUserAdmin = false;
+			}
+		}
+	}
+
+	private class TxtChipsMouseListener extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			if (isUserAdmin == true) {
+				ID = "Chips";
+				txtChips.setText(JOptionPane.showInputDialog("enter"));
+				nameToChange = txtChips.getText();
+				updateName();
+				isUserAdmin = false;
+			}
+		}
+	}
+
+	private class TxtVegeBurgerMouseListener extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			if (isUserAdmin == true) {
+				ID = "Vege Burger";
+				txtVegeBurger.setText(JOptionPane.showInputDialog("Enter new Product !"));
+				nameToChange = txtVegeBurger.getText();
+				updateName();
+				isUserAdmin = false;
+			}
+		}
+	}
+
+	private class TxtWingsMouseListener extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			if (isUserAdmin == true) {
+				ID = "Wings";
+				txtWings.setText(JOptionPane.showInputDialog("enter"));
+				nameToChange = txtWings.getText();
+				updateName();
+				isUserAdmin = false;
+			}
+		}
+	}
+
+	private class TxtChickenBurgerMouseListener extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			if (isUserAdmin == true) {
+				ID = "chicenBurger";
+				txtChickenBurger.setText(JOptionPane.showInputDialog("enter"));
+				nameToChange = txtChickenBurger.getText();
+				updateName();
+				isUserAdmin = false;
+			}
+		}
+	}
+
+	private class TxtBreastMouseListener extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			if (isUserAdmin == true) {
+				ID = "Breast";
+				txtBreast.setText(JOptionPane.showInputDialog("enter"));
+				nameToChange = txtBreast.getText();
+				updateName();
+				isUserAdmin = false;
+			}
+		}
+	}
+
+	private class TxtLegsMouseListener extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			if (isUserAdmin == true) {
+				ID = "Legs";
+				txtLegs.setText(JOptionPane.showInputDialog("enter"));
+				nameToChange = txtLegs.getText();
+				updateName();
+				isUserAdmin = false;
+			}
+		}
+	}
+
+	private class TxtBeanBurgerMouseListener extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			if (isUserAdmin == true) {
+				ID = "beanBurger";
+				txtBeanBurger.setText(JOptionPane.showInputDialog("enter"));
+				nameToChange = txtBeanBurger.getText();
+				updateName();
+				isUserAdmin = false;
+			}
+		}
+	}
+
+	private class TxtBeafBurgerMouseListener extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			if (isUserAdmin == true) {
+				ID = "beafBurger";
+				txtBeafBurger.setText(JOptionPane.showInputDialog("enter"));
+				nameToChange = txtBeafBurger.getText();
+				updateName();
+				isUserAdmin = false;
+			}
+		}
+	}
+
+	private class TglbtnOnOffActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if (tglbtnOnOff.isSelected()) {
+				calculate = true;
+			} else {
+				calculate = false;
+			}
+		}
+	}
+
+	private class ComboBoxActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			numOfDrinks = 0;
+			switch (Integer.parseInt((String) comboBox.getSelectedItem())) {
+			case 0:
+				numOfDrinks = 0;
+				break;
+			case 1:
+				numOfDrinks = 1;
+				break;
+			case 2:
+				numOfDrinks = 2;
+				break;
+			case 3:
+				numOfDrinks = 3;
+				break;
+			case 4:
+				numOfDrinks = 4;
+				break;
+			case 5:
+				numOfDrinks = 5;
+				break;
+			case 6:
+				numOfDrinks = 6;
+				break;
+			case 7:
+				numOfDrinks = 7;
+				break;
+			case 8:
+				numOfDrinks = 8;
+				break;
+			case 9:
+				numOfDrinks = 9;
+				break;
+			case 10:
+				numOfDrinks = 10;
+				break;
+
+			}
+		}
+	}
+
+	private class RdbtnAdminActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			try {
+				String admin = JOptionPane.showInputDialog("ENTER ADMIN PASSWORD !");
+				if (admin != null) {
+					if (admin.equalsIgnoreCase("ADMIN")) {
+						rdbtnAdmin.setSelected(true);
+						isUserAdmin = true;
+					} else {
+						rdbtnAdmin.setSelected(false);
+						isUserAdmin = false;
+					}
+				} else {
+					rdbtnAdmin.setSelected(false);
+					isUserAdmin = false;
+				}
+			} catch (HeadlessException e1) {
+				rdbtnAdmin.setSelected(false);
+				isUserAdmin = false;
+			}
+		}
+	}
+
+	private class BtnEmailActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			try {
+				new SendMailTLS().send(Model.getDataVector());
+			} catch (SQLException e1) {
+			}
+		}
+	}
+	private class TaPaymentKeyListener extends KeyAdapter {
+		@Override
+		public void keyPressed(KeyEvent e) {
+			if(e.getKeyCode()==KeyEvent.VK_ENTER){
+				pay() ;
+			}
+		}
+	}
+
+
+
+
+	public int getNumber() {
+		return number;
+	}
+
+	public String capitalizeFirst(String source) {
+		StringBuffer res = new StringBuffer();
+		String[] strArr = source.split(" ");
+		for (String str : strArr) {
+			char[] stringArray = str.trim().toCharArray();
+			stringArray[0] = Character.toUpperCase(stringArray[0]);
+			str = new String(stringArray);
+			res.append(str).append(" ");
+			returnee=res.toString().trim();
+		}
+		return returnee;
+	}
+
+	public void removeFromTable() {
+		Model = (DefaultTableModel) table.getModel();
+		try {
+			if (!(Model.getValueAt(table.getSelectedRow(), table.getSelectedColumn()).equals("________")
+					|| Model.getValueAt(table.getSelectedRow(), table.getSelectedColumn()).equals("TOTAL"))) {
+				Object x = table.getValueAt(table.getSelectedRow(), 2);
+				Model.removeRow(table.getSelectedRow());
+				double tep = Double.parseDouble((String) x);
+				removed += tep;
+				setTotal(((subTotal + getVAT() + getDeliveryCost()) - vaucher) - removed);
+				tfChange.setText(String.format(" %.2f", getTotal()));
+
+				try {
+					Model.removeRow(Model.getRowCount() - 1);
+				} catch (Exception e1) {
+				}
+
+				Model.insertRow(table.getRowCount(), new Object[] { "", "TOTAL", String.format(" %.2f", getTotal()) });
+				counter++;
+				isSecond = true;
+				cbHomeDelivery.setSelected(false);
+				cbVAT.setSelected(false);
+			}
+		} catch (NumberFormatException e1) {
+		}
+
+	}
+
+	public void pay() {
+		finalis = false;
+
+		if (taPayment.getText().isEmpty()) {
+			setPayment(0.0);
+		} else {
+			setPayment(Double.parseDouble(taPayment.getText()));
+		}
+		double xxx = Double.parseDouble(String.format(" %.2f", getTotal()));
+		Double calc = ((getPayment() + vaucher)) - xxx;
+
+		if (calc >= 0.00) {
+			setTotal(((subTotal + getVAT() + getDeliveryCost()) - vaucher) - removed);
+			Model = (DefaultTableModel) table.getModel();
+			Model.insertRow(table.getRowCount(), new Object[] { "\n" });
+			Model.insertRow(table.getRowCount(),
+					new Object[] { "", "YOU PAID : ", String.format(" %.2f", getPayment()) });
+			Model.insertRow(table.getRowCount(),
+					new Object[] { "", "YOUR CHANGE : ", String.format(" %.2f", getPayment() - getTotal()) });
+			counter++;
+			tfChange.setText(String.format(" %.2f", calc));
+			if (isPrintingOn) {
+				print();
+			}
+			clear();
+			drinksToDisplay = 0;
+			txtChange.setText("I PAY YOU ");
+			JOptionPane.showMessageDialog(null, "Thank You !");
+			tabbedPane.addTab(" SHOPING Bill ", null, paShopingList, null);
+			softChickenBurgerCost = 0.0;
+			softBeafBurgerCost = 0.0;
+			softBeanBurgerCost = 0.0;
+			softVegeBurgerCost = 0.0;
+			setSoftDrinkCost(0.0);
+			softChipsCost = 0.0;
+			softWingsCost = 0.0;
+			softLegsCost = 0.0;
+			softBreastCost = 0.0;
+
+			softDrinkCost = 0.0;
+			setSoftDrinkUnit(0.0);
+			setDrinkCost(0.0);
+			firstPC = 0.0;
+			totalDrinks = 0.0;
+			i = 0;
+
+			setWingsCost(0.0);
+			setLegsCost(0.0);
+			setBreastCost(0.0);
+			setChipsCost(0.0);
+			setVegeBurgerCost(0.0);
+			setSubTotal(0.0);
+			tfVaucher.setText("0.0");
+			finalis = true;
+			vaucher = 0.0;
+			removed = 0.0;
+			isSecond = false;
+
+			drinksToDisplay = 0;
+		} else {
+			JOptionPane.showMessageDialog(null, String.format("� %.2f SHORT", calc));
+
+		}
+	}
+
+	public void updateName() {
+
+		try {
+			String que = "CREATE TABLE txt (id VARCHAR(100) primary key,name VARCHAR(100))";
+			stmt.execute(que);
+			JOptionPane.showMessageDialog(null, "THE VERY FIRST USE RESTART NEEDED !");
+			new Restart();
+			this.dispose();
+		} catch (SQLException e1) {
+			try {
+				ResultSet resOne = stmt.executeQuery("SELECT  id, name from txt where id ='" + ID + "'");
+				if (resOne.next()) {
+					String id = resOne.getString("id");
+					if (id.equals(ID)) {
+						String query = "update txt set name ='" + nameToChange + "' where id = '" + ID + "'";
+						stmt.execute(query);
+					}
+				} else {
+					String query1 = "insert into txt (id, name) values ('" + ID + "','" + nameToChange + "')";
+					stmt.execute(query1);
+				}
+			} catch (SQLException e2) {
+			}
+		}
+	}
+
+	public void updateDB() {
+		if (JOptionPane.showConfirmDialog(null, "Are you sure to change the product price ?", "WARNING",
+				JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+			String y = JOptionPane.showInputDialog("Enter Product Price ");
+			String query = "update product set price= '" + y + "' where name ='" + changeValueTo + "'";
+			try {
+				stmt.execute(query);
+			} catch (SQLException e1) {
+				JOptionPane.showInputDialog("Unable to change the price ! ");
+			}
+		}
+	}
+
+	public void readDataBase() {
+		java.sql.ResultSet resOne = null;
+		String query = "CREATE TABLE product(name VARCHAR(100), price VARCHAR(100))";
+		try {
+			stmt.execute(query);
+		} catch (SQLException e11) {
+			try {
+				resOne = stmt.executeQuery("SELECT  name, price from product where name ='" + changeValueTo + "'");
+				if (resOne.next()) {
+					String name = resOne.getString("name");
+					String price = resOne.getString("price");
+
+					try {
+						firstPC = Double.parseDouble(price);
+					} catch (NumberFormatException e) {
+					}
+
+				} else {
+					String y = JOptionPane.showInputDialog("price ");
+					String query1 = "insert into product (name, price) values ('" + changeValueTo + "','" + y + "')";
+					stmt.execute(query1);
+				}
+			} catch (SQLException e1) {
+			}
+		}
+	}
+
+	public void productPrice() {
+		if (tfCode.getText().equalsIgnoreCase("drop table")) {
+			try {
+				Statement sta = con.createStatement();
+				String query = "DROP TABLE Report";
+				sta.executeUpdate(query);
+			} catch (SQLException e1) {
+				JOptionPane.showMessageDialog(null, "not Droped !");
+			}
+			JOptionPane.showMessageDialog(null, "Droped !");
+		} else {
+			try {
+				tempo = tfCode.getText();
+				if (finalis == true) {
+					String del = ("DELETE FROM PRODUCT WHERE name ='" + tempo + "'");
+					stmt.execute(del);
+					finalis = false;
+				}
+
+				java.sql.ResultSet resOne = null;
+				resOne = stmt.executeQuery("SELECT  name, price from product where name ='" + tfCode.getText() + "'");
+				if (resOne.next()) {
+					String name = resOne.getString("name");
+					String price = resOne.getString("price");
+
+					try {
+						vaucher = Double.parseDouble(price);
+						tfVaucher.setText(String.format(" %.2f", (vaucher)));
+					} catch (NumberFormatException e) {
+					}
+
+				} else {
+					String x = tfCode.getText();
+					String y = JOptionPane.showInputDialog("price ");
+					String query = "insert into product (name, price) values ('" + x + "','" + y + "')";
+					stmt.execute(query);
+				}
+			} catch (HeadlessException | SQLException e1) {
+				String query = "CREATE TABLE product(name VARCHAR(100), price VARCHAR(100))";
+				try {
+					stmt.execute(query);
+				} catch (SQLException e11) {
+				}
+			}
+		}
+
+		tfCode.setText(null);
+		taPayment.requestFocus();
+
+	}
+
+	public void print() {
+		MessageFormat header = new MessageFormat("Shoping Recipt");
+		int Integer = 1;
+		MessageFormat footer = new MessageFormat("PAGE NO{0,number,integer}");
+		++Integer;
+		try {
+			table.print(JTable.PrintMode.FIT_WIDTH, header, footer);
+		} catch (java.awt.print.PrinterException e5) {
+			JOptionPane.showMessageDialog(null, "Something Went Wrong !");
+		}
+	}
+
+	public void clear() {
+		taPayment.setText(null);
+		displayBB.setText(" 0,0");
+		displayBeB.setText(" 0,0");
+		displayCB.setText(" 0,0");
+		displayDrink.setText(" 0,0");
+		displayL.setText(" 0,0");
+		displayB.setText(" 0,0");
+		displayW.setText(" 0,0");
+		displayVB.setText(" 0,0");
+		displayFries.setText(" 0,0");
+		lblDrink.setText(String.format(" %.2f", 0.0));
+		cbHomeDelivery.setSelected(false);
+		cbVAT.setSelected(false);
+		lblMeal.setText(String.format(" %.2f", 0.0));
+		lblDelivery.setText(String.format(" %.2f", 0.0));
+		lblVAT.setText(String.format(" %.2f", 0.0));
+		lblSubTotal.setText(String.format(" %.2f", 0.0));
+		lblTotal.setText(String.format(" %.2f", 0.0));
+		subTotal = 0.0;
+		totalToPay = 0.0;
+		deliveryCost = 0.0;
+		VAT = 0.0;
+		softDrinkCost = 0.0;
+		Model = (DefaultTableModel) table.getModel();// inserting into the
+		Model.setRowCount(0);
+		counter = 1;
+	}
+
+	public void setNumber(int number) {
+		this.number = number;
+	}
+
+	public double getSubTotal() {
+		return subTotal;
+	}
+
+	public void setSubTotal(double subTotal) {
+		this.subTotal = subTotal;
+	}
+
+	public double getTotal() {
+		return totalToPay;
+	}
+
+	public void setTotal(double total) {
+		this.totalToPay = total;
+	}
+
+	public double getDeliveryCost() {
+		return deliveryCost;
+	}
+
+	public void setDeliveryCost(double deliveryCost) {
+		this.deliveryCost = deliveryCost;
+	}
+
+	public double getVAT() {
+		return VAT;
+	}
+
+	public void setVAT(double vAT) {
+		VAT = vAT;
+	}
+
+	public double getChickenBurgerCost() {
+		return this.chickenBurgerCost;
+	}
+
+	public void setChickenBurgerCost(double ChickenBurgerCost) {
+		this.chickenBurgerCost = ChickenBurgerCost;
+	}
+
+	public double getBeafBurgerCost() {
+		return beafBurgerCost;
+	}
+
+	public void setBeafBurgerCost(double beafBurgerCost) {
+		this.beafBurgerCost = beafBurgerCost;
+	}
+
+	public double getBeanBurgerCost() {
+		return beanBurgerCost;
+	}
+
+	public void setBeanBurgerCost(double beanBurgerCost) {
+		this.beanBurgerCost = beanBurgerCost;
+	}
+
+	public double getDrinkCost() {
+		return softDrinkCost;
+	}
+
+	public void setDrinkCost(double drinkCost) {
+		this.softDrinkCost = drinkCost;
+	}
+
+	public double getSoftDrinkCost() {
+		return softDrinkCost;
+	}
+
+	public void setSoftDrinkCost(double softDrinkCost) {
+		this.softDrinkCost = softDrinkCost;
+	}
+
+	public double getSoftDrinkUnit() {
+		return softDrinkUnit;
+	}
+
+	public void setSoftDrinkUnit(double softDrinkUnit) {
+		this.softDrinkUnit = softDrinkUnit;
+	}
+
+	public double getPayment() {
+		return payment;
+	}
+
+	public void setPayment(double payment) {
+		this.payment = payment;
+	}
+
+	public double getChipsCost() {
+		return chipsCost;
+	}
+
+	public void setChipsCost(double chipsCost) {
+		this.chipsCost = chipsCost;
+	}
+
+	public double getVegeBurgerCost() {
+		return vegeBurgerCost;
+	}
+
+	public void setVegeBurgerCost(double vegeBurgerCost) {
+		this.vegeBurgerCost = vegeBurgerCost;
+	}
+
+	public double getBreastCost() {
+		return breastCost;
+	}
+
+	public void setBreastCost(double breastCost) {
+		this.breastCost = breastCost;
+	}
+
+	public double getWingsCost() {
+		return wingsCost;
+	}
+
+	public void setWingsCost(double wingsCost) {
+		this.wingsCost = wingsCost;
+	}
+
+	public void setLegsCost(double legsCost) {
+		this.legsCost = legsCost;
+	}
+
+	public double getLegsCost() {
+		return legsCost;
+	}
+
+	public DefaultTableModel getModel() {
+		return Model;
+	}
+
+	public void setModel(DefaultTableModel model) {
+		Model = model;
+	}
+
+	public JTable getTable() {
+		return table;
+	}
+
+	public void setTable(JTable table) {
+		this.table = table;
+	}
+
+	public double firstPC;
+	private static double vaucher;
+	private double payment;
+	private double subTotal;
+	private double totalToPay;
+	private double deliveryCost;
+	private double VAT;
+	private double chickenBurgerCost;
+	private double beafBurgerCost;
+	private double beanBurgerCost;
+	private double softDrinkUnit;
+
+	private double softChickenBurgerCost;
+
+	private int number;
+	private JTextField displayCB;
+	private JTextField displayBB;
+	private JTextField displayBeB;
+	private JTextField displayDrink;
+	private JTextField tfNumberOfDrink;
+	private static int i = 0;
+	private JScrollPane scrollPane;
+	private JTable table;
+	private static int counter = 1;
+	private JButton btnEmail;
+	private JTextField tfVaucherAmount;
+	private JButton btnCreate;
+	private JLabel lblPicture;
+	private JButton btnPrintBarcode;
+	private File f;
+	private JTextField lblNumOfCopies;
+	private int noc;
+	private JTextArea taPayment;
+	private JButton btnReset;
+	private JButton btnCash;
+	private JTextField tfChange;
+	private JPanel panel_1;
+	private static boolean isPaid;
+	private JComboBox<?> jcLegs;
+	private JComboBox<?> jcWings;
+	private JComboBox<?> jcVegBurger;
+	private JTextField displayL;
+	private JTextField displayW;
+	private JTextField displayVB;
+	private JComboBox<?> jcBreast;
+	private JTextField displayB;
+	private JComboBox<?> jcFries;
+	private JTextField displayFries;
+	private double firstNumber, secondNumber, resultNumber = 0.0;
+	private String operation;
+	private static JTextField tfTime;
+	private static JTextField tfDate;
+	private JProgressBar progressBar;
+	private JTextField txtChange;
+	private JToggleButton btnPrinter;
+	private static JTextField tfCode;
+	public Statement stmt;
+
+	public static String changeValueTo;
+	private JTextField txtChips;
+	private JTextField txtVegeBurger;
+	private JTextField txtWings;
+	private JTextField txtLegs;
+	private JTextField txtBreast;
+	private JTextField txtBeanBurger;
+	private JTextField txtBeafBurger;
+	private JTextField txtChickenBurger;
+	private static String ID;
+	private static String nameToChange;
+	private JLabel textField;
+	private JLabel label;
+	private JLabel label_1;
+	private JLabel label_2;
+	private JLabel label_3;
+	private JLabel label_4;
+	private JLabel label_5;
+	private JLabel label_7;
+	private JLabel label_8;
+	private JTextField tfVaucher;
+	private static boolean finalis;
+	private static String tempo;
+	private JToggleButton tglbtnOnOff;
+	private JComboBox comboBox;
+	private JLabel lblDrinks;
+	private JRadioButton rdbtnAdmin;
+	private String returnee;
+}
+
+class Restart {
+	public Restart() throws SQLException {
+		new Restuarant().setVisible(true);
+	}
+}
